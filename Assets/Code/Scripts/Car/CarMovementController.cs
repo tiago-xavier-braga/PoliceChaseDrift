@@ -43,22 +43,20 @@ namespace XaviGames.Car
             UpdatePhysics();
         }
 
-        public void OnMoveInput(InputAction.CallbackContext context)
+        public void OnMoveInput(Vector2 value)
         {
-            _inputVector = context.ReadValue<Vector2>();
+            _inputVector = value;
         }
 
-        public void OnHandbrake(InputAction.CallbackContext context)
+        public void OnHandbrake(bool state)
         {
-            switch (context.phase)
+            if (state)
             {
-                case InputActionPhase.Performed:
-                    ApplyDriftWheelSettings();
-                    break;
-
-                case InputActionPhase.Canceled:
-                    ApplyDefaultWheelSettings();
-                    break;
+                ApplyDriftWheelSettings();
+            }
+            else
+            {
+                ApplyDefaultWheelSettings();
             }
         }
 

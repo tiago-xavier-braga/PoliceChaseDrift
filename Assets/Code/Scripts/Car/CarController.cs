@@ -6,7 +6,5 @@ namespace XaviGames.Car
     {
         [field: SerializeField]
         public bool IsMovementEnabled { get; private set; } = true;
-
-
     }
 }
