@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b43dcfad725b5848ac068a6484997c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameStartEventChannel: {fileID: 11400000, guid: a9b8c7d8b01303a4384ca6d1f7f59ca2, type: 2}
 --- !u!4 &100199647
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +363,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carMovementController: {fileID: 1533865964}
   _playerController: {fileID: 960001219}
-  _gameStartEventChannel: {fileID: 11400000, guid: a9b8c7d8b01303a4384ca6d1f7f59ca2, type: 2}
+  _minTurnAngleDegrees: 5
+  _distanceThresholdMeters: 2
+  _steerInputMagnitude: 1
+  _forwardInput: 1
+  _reverseInput: -1
+  _useHandbrake: 0
 --- !u!4 &396308110
 Transform:
   m_ObjectHideFlags: 0
@@ -707,10 +711,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3674234056934081314, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: _volume
-      value: 0.119
-      objectReference: {fileID: 0}
     - target: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
       propertyPath: m_Name
       value: Ai Car
@@ -887,10 +887,6 @@ PrefabInstance:
     - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3674234056934081314, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: _volume
-      value: 0.119
       objectReference: {fileID: 0}
     - target: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
       propertyPath: m_Name
