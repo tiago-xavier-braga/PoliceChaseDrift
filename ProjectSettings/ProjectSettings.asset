@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: c00c94fbdcb0a3741bc6191947b35c1d
+  productGUID: 15195f5525b6bf64c95956ff52ce8dab
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Xavi Games
+  companyName: DefaultCompany
   productName: ShadowChaseDrift
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
