@@ -18,13 +18,6 @@ namespace XaviGames.Car
         [SerializeField]
         private List<WheelController> _wheelControllers;
 
-        [Header("Input References")]
-        [SerializeField]
-        private InputActionReference _moveInputAction;
-
-        [SerializeField]
-        private InputActionReference _handbrakeInputAction;
-
         [Header("Info")]
         [SerializeField]
         [ReadOnly]
@@ -38,22 +31,6 @@ namespace XaviGames.Car
         private WheelFrictionCurve _driftSidewaysFriction = new();
         
         private float _defaultAngularDamping;
-
-        private void OnEnable()
-        {
-            _moveInputAction.action.performed += OnMoveInput;
-            _moveInputAction.action.canceled += OnMoveInput;
-            _handbrakeInputAction.action.performed += OnHandbrake;
-            _handbrakeInputAction.action.canceled += OnHandbrake;
-        }
-
-        private void OnDisable()
-        {
-            _moveInputAction.action.performed -= OnMoveInput;
-            _moveInputAction.action.canceled -= OnMoveInput;
-            _handbrakeInputAction.action.performed -= OnHandbrake;
-            _handbrakeInputAction.action.canceled -= OnHandbrake;
-        }
 
         private void Start()
         {
