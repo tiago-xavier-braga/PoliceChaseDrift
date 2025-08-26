@@ -36,11 +36,6 @@ namespace XaviGames.AI
 
         private void FixedUpdate()
         {
-            if (_carMovementController == null || _playerController == null || _playerController.CarTransform == null)
-            {
-                return;
-            }
-
             Transform carTransform = _carMovementController.transform;
             Transform playerCarTransform = _playerController.CarTransform;
 

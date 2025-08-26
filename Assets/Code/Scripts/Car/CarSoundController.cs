@@ -9,9 +9,6 @@ namespace XaviGames.Car
         [SerializeField]
         private CarMovementController _carMovementController;
 
-        [SerializeField]
-        private CarController _carController;
-
         [Header("Audio Sources References")]
         [SerializeField]
         private AudioSource _audioSource;
@@ -32,16 +29,6 @@ namespace XaviGames.Car
 
         private void Update()
         {
-            if (!_carController.IsMovementEnabled)
-            {
-                if (_audioSource.isPlaying)
-                {
-                    _audioSource.Stop();
-                }
-
-                return;
-            }
-
             if (!_audioSource.isPlaying)
             {
                 _audioSource.clip = _audioClip;

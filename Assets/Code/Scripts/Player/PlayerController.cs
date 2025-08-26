@@ -6,17 +6,34 @@ namespace XaviGames.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("Car References")]
+        [field: Header("Car References")]
         [field: SerializeField]
         public Transform CarTransform { get; private set; }
 
-        [SerializeField]
-        private CarMovementController _carMovementController;
+        [field: SerializeField]
+        public CarMovementController CarMovementController { get; private set; }
+
+        [field: SerializeField]
+        public PlayerHealth PlayerHealth { get; private set; }
+
+        public static PlayerController Instance { get; private set; }
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
             Vector2 inputVector = context.ReadValue<Vector2>();
-            _carMovementController.OnMoveInput(inputVector);
+            CarMovementController.OnMoveInput(inputVector);
         }
 
         public void OnHandbrake(InputAction.CallbackContext context)
@@ -24,11 +41,11 @@ namespace XaviGames.Player
             switch (context.phase)
             {
                 case InputActionPhase.Performed:
-                    _carMovementController.OnHandbrake(true);
+                    CarMovementController.OnHandbrake(true);
                     break;
 
                 case InputActionPhase.Canceled:
-                    _carMovementController.OnHandbrake(false);
+                    CarMovementController.OnHandbrake(false);
                     break;
             }
         }
