@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using XaviGames.Car;
+using XaviGames.ObjectVariable;
 
 namespace XaviGames.Player
 {
@@ -15,6 +16,9 @@ namespace XaviGames.Player
 
         [field: SerializeField]
         public PlayerHealth PlayerHealth { get; private set; }
+
+        [SerializeField]
+        private BoolVariable _isMatchStarted;
 
         public static PlayerController Instance { get; private set; }
 
@@ -32,12 +36,22 @@ namespace XaviGames.Player
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
+            if (!_isMatchStarted.Value)
+            {
+                return;
+            }
+
             Vector2 inputVector = context.ReadValue<Vector2>();
             CarMovementController.OnMoveInput(inputVector);
         }
 
         public void OnHandbrake(InputAction.CallbackContext context)
         {
+            if (!_isMatchStarted.Value)
+            {
+                return;
+            }
+
             switch (context.phase)
             {
                 case InputActionPhase.Performed:

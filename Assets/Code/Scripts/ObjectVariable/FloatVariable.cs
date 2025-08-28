@@ -4,7 +4,7 @@ using XaviEssencials.Runtime;
 
 namespace XaviGames.ObjectVariable
 {
-    [CreateAssetMenu(fileName = "FloatVariable", menuName = "Xavi Games/ObjectVariable/FloatVariable", order = 1)]
+    [CreateAssetMenu(fileName = "FloatVariable", menuName = "Xavi Games/Variable/FloatVariable", order = 1)]
     public class FloatVariable : ScriptableObject
     {
         [SerializeField]

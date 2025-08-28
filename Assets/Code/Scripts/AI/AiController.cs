@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using XaviEssencials.Runtime;
 using XaviGames.Car;
+using XaviGames.ObjectVariable;
 using XaviGames.Player;
 
 namespace XaviGames.AI
@@ -14,6 +15,9 @@ namespace XaviGames.AI
 
         [SerializeField]
         private PlayerController _playerController;
+
+        [SerializeField]
+        private BoolVariable _isMatchStarted;
 
         [Header("Tuning")]
         [SerializeField]
@@ -31,11 +35,13 @@ namespace XaviGames.AI
         [SerializeField]
         private float _reverseInput = -1f;
 
-        [SerializeField]
-        private bool _useHandbrake = false;
-
         private void FixedUpdate()
         {
+            if (!_isMatchStarted.Value)
+            {
+                return;
+            }
+
             Transform carTransform = _carMovementController.transform;
             Transform playerCarTransform = _playerController.CarTransform;
 
@@ -61,7 +67,6 @@ namespace XaviGames.AI
             }
 
             _carMovementController.OnMoveInput(inputVector);
-            _carMovementController.OnHandbrake(_useHandbrake);
         }
     }
 }
