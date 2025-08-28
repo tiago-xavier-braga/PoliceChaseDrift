@@ -156,6 +156,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
   m_PrefabInstance: {fileID: 7097110278249803802}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &314915408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314915410}
+  - component: {fileID: 314915409}
+  m_Layer: 0
+  m_Name: Match Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &314915409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314915408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1643b1f4eb1647d40ae43782f4a6303d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Manager.MatchManager
+  _playerHealth: {fileID: 960001220}
+  _isMatchStarted: {fileID: 11400000, guid: 302ad04937bbdd44680598b0846e8945, type: 2}
+--- !u!4 &314915410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314915408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +580,7 @@ MonoBehaviour:
   <CarTransform>k__BackingField: {fileID: 8580537251163933552}
   <CarMovementController>k__BackingField: {fileID: 8962129755827753420}
   <PlayerHealth>k__BackingField: {fileID: 960001220}
+  _isMatchStarted: {fileID: 11400000, guid: 302ad04937bbdd44680598b0846e8945, type: 2}
 --- !u!114 &960001220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,22 +667,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7ddb9ffd-0207-4fd0-a551-a64ebf78273d
     m_ActionName: 'ActionMap/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 960001219}
-        m_TargetAssemblyTypeName: XaviGames.Player.PlayerController, Assembly-CSharp
-        m_MethodName: OnHandbrake
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 588820fa-8aa7-4a30-8ae8-752ead6ef745
-    m_ActionName: 'ActionMap/Handbrake[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: ActionMap
@@ -689,6 +720,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1935808630439921390, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935808630439921390, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
       propertyPath: m_Name
       value: Ai Car
@@ -698,9 +737,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1975531580}
     - targetCorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1975531581}
@@ -833,18 +869,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
   m_PrefabInstance: {fileID: 1533865963}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1975531580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975531576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456994dff6180814bba757d6f79649e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.AI.AiCollision
 --- !u!114 &1975531581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,12 +883,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carMovementController: {fileID: 1533865964}
   _playerController: {fileID: 960001219}
+  _isMatchStarted: {fileID: 11400000, guid: 302ad04937bbdd44680598b0846e8945, type: 2}
   _minTurnAngleDegrees: 5
   _distanceThresholdMeters: 2
   _steerInputMagnitude: 1
   _forwardInput: 1
   _reverseInput: -1
-  _useHandbrake: 0
 --- !u!1001 &7097110278249803802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -964,3 +988,4 @@ SceneRoots:
   - {fileID: 960001217}
   - {fileID: 1533865963}
   - {fileID: 650931813}
+  - {fileID: 314915410}
