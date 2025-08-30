@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using XaviEssencials.Runtime;
+using XaviGames.Manager;
 using XaviGames.ObjectVariable;
 
 namespace XaviGames.Player
@@ -10,20 +11,34 @@ namespace XaviGames.Player
         [SerializeField]
         private FloatVariable _playerHealthVariable;
 
-        private float _health => _playerHealthVariable.Value;
+        [SerializeField]
+        private BoolVariable _isMatchStarted;
 
-        public UnityAction<float> OnHealthChanged;
+        [SerializeField]
+        private MatchManager _matchManager;
 
         public void TakeDamage(float damage)
         {
-            _playerHealthVariable.SetValue(Mathf.Max(0, _health - damage));
-            OnHealthChanged?.Invoke(_health);
+            _playerHealthVariable.SetValue(Mathf.Max(0, _playerHealthVariable.Value - damage));
+            HandleHealthChanged();
         }
 
         public void Heal(float amount)
         {
-            _playerHealthVariable.SetValue(_health + amount);
-            OnHealthChanged?.Invoke(_health);
+            _playerHealthVariable.SetValue(_playerHealthVariable.Value + amount);
+        }
+
+        private void HandleHealthChanged()
+        {
+            if (!_isMatchStarted.Value)
+            {
+                return;
+            }
+
+            if (_playerHealthVariable.Value <= 0)
+            {
+                _matchManager.FinishMatch();
+            }
         }
     }
 }

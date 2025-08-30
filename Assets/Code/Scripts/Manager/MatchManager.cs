@@ -14,28 +14,11 @@ namespace XaviGames.Manager
         [SerializeField]
         private BoolVariable _isMatchStarted;
 
-        public void OnEnable()
+        [Button("Finish", true)]
+        public void FinishMatch()
         {
-            _playerHealth.OnHealthChanged += HandleHealthChanged;
-        }
-
-        public void OnDisable()
-        {
-            _playerHealth.OnHealthChanged -= HandleHealthChanged;
-        }
-
-
-        private void HandleHealthChanged(float value)
-        {
-            if (!_isMatchStarted.Value)
-            {
-                return;
-            }
-
-            if (value <= 0)
-            {
-                FinishMatch();
-            }
+            _isMatchStarted.SetValue(false);
+            Debug.Log("Match Finished");
         }
 
         [Button("Start", true)]
@@ -45,11 +28,6 @@ namespace XaviGames.Manager
             Debug.Log("Match Started");
         }
 
-        [Button("Finish", true)]
-        private void FinishMatch()
-        {
-            _isMatchStarted.SetValue(false);
-            Debug.Log("Match Finished");
-        }
+
     }
 }
