@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace XaviGames.Camera
 {
+    [ExecuteInEditMode]
     public class CameraController : MonoBehaviour
     {
         [SerializeField]
