@@ -339,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ai Car
       objectReference: {fileID: 0}
+    - target: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7469691533098938820, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
     m_RemovedGameObjects: []
@@ -931,12 +935,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281227312}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1806189803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &307213720
 PrefabInstance:
@@ -1558,6 +1562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Player.PlayerHealth
   _playerHealthVariable: {fileID: 11400000, guid: c00e4c12c25c0f04c8d26f692d47e4d1, type: 2}
+  _isMatchStarted: {fileID: 11400000, guid: 302ad04937bbdd44680598b0846e8945, type: 2}
+  _matchManager: {fileID: 281227313}
 --- !u!114 &469546462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,6 +3912,7 @@ Transform:
   - {fileID: 308328691}
   - {fileID: 470320382}
   - {fileID: 327018324}
+  - {fileID: 2144318665}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1250941006 stripped
@@ -5083,6 +5090,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1485735703923897870, guid: 21492933602326b4e9cd95211831fd0b, type: 3}
   m_PrefabInstance: {fileID: 1772170903}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1806189802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806189803}
+  m_Layer: 0
+  m_Name: -- MANAGERS --
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1806189803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806189802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 281227314}
+  - {fileID: 1893446999}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1819283622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5211,6 +5251,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1485735703923897870, guid: 21492933602326b4e9cd95211831fd0b, type: 3}
   m_PrefabInstance: {fileID: 1857519960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1893446998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893446999}
+  - component: {fileID: 1893447000}
+  m_Layer: 0
+  m_Name: Lighting Cycle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1893446999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893446998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1806189803}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1893447000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893446998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6753327ccb1c73e4e8e43e2388ae0cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Manager.LightingCycleManager
+  _lightTransform: {fileID: 2052842704}
+  _isMatchStarted: {fileID: 11400000, guid: 302ad04937bbdd44680598b0846e8945, type: 2}
+  _isNight: {fileID: 11400000, guid: e1a0724def9fb194c848de7ac731804e, type: 2}
+  _cycleTimeInSeconds: 40
 --- !u!1 &1916645332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6672,12 +6760,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144318661}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.5, z: 26}
   m_LocalScale: {x: 40, y: 5, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1196722151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &109858727520677784
 PrefabInstance:
@@ -7124,8 +7212,7 @@ SceneRoots:
   - {fileID: 1511934309}
   - {fileID: 2052842704}
   - {fileID: 31702198}
-  - {fileID: 2144318665}
-  - {fileID: 281227314}
   - {fileID: 68285990}
   - {fileID: 469546463}
   - {fileID: 1196722151}
+  - {fileID: 1806189803}
