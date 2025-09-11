@@ -14,6 +14,11 @@ namespace XaviGames.Manager
         [SerializeField]
         private BoolVariable _isMatchStarted;
 
+        private void Start()
+        {
+            StartMatch();
+        }
+
         [Button("Finish", true)]
         public void FinishMatch()
         {
