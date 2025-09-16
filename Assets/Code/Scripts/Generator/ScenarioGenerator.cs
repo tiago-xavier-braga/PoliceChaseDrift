@@ -49,7 +49,7 @@ namespace XaviGames.Generator
                 int prefabIndex = Random.Range(0, _prefabs.Count);
 
                 float randomX = Random.Range(minX, maxX);
-                float randomY = Random.Range(_pivotReference.position.y, _pivotReference.position.y + _height);
+                float randomY = _pivotReference.position.y + _height;
                 float randomZ = Random.Range(minZ, maxZ);
 
                 Vector3 randomPosition = new Vector3(randomX, randomY, randomZ);
