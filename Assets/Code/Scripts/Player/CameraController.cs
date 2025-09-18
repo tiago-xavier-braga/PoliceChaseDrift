@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace XaviGames.Camera
+namespace XaviGames.Player
 {
     [ExecuteInEditMode]
     public class CameraController : MonoBehaviour

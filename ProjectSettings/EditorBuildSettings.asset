@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Level/Scenes/Start.unity
+    guid: 765a97b1e7aeb0447bb0bde4f9617f1c
+  - enabled: 1
     path: Assets/Level/Scenes/StaticEnvironment.unity
     guid: 380c3e0420a9e994ebe45281094075ed
+  - enabled: 1
+    path: Assets/Level/Scenes/DynamicEnvironment.unity
+    guid: 16ee79f3945b4334c97cb2ad04dbce8d
+  - enabled: 1
+    path: Assets/Level/Scenes/Game.unity
+    guid: d3c70dbf07181934eb4636c5e892dfb1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
