@@ -505,13 +505,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Props.LightObjectController
   _light: {fileID: 9023071102100514326}
+  _meshRenderer: {fileID: 2729177441328660336}
   _intensityAtDay: 0
   _intensityAtNight: 60
+  _transitionSeconds: 1
   _isNight: {fileID: 11400000, guid: e1a0724def9fb194c848de7ac731804e, type: 2}
   _collisionLayerMask:
     serializedVersion: 2
     m_Bits: 64
   _disableDelaySeconds: 10
+  _easeType: 25
 --- !u!1 &5990902470039779399
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +581,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f57d7a58015a4b845800ea933f394583, type: 2}
+  - {fileID: 2100000, guid: 273e5a384d28f8a4ea05b3eaacc89840, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

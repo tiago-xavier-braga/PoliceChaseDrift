@@ -1,15 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.ObjectVariable;
+using static UnityEngine.GraphicsBuffer;
 
 namespace XaviGames.Props
 {
+    [RequireComponent(typeof(Collider))]
     public class LightObjectController : MonoBehaviour
     {
+        [Header("Refs")]
         [SerializeField]
         private Light _light;
 
+        [SerializeField]
+        private MeshRenderer _meshRenderer;
+
+        [Header("Intensity")]
         [SerializeField]
         private float _intensityAtDay = 0f;
 
@@ -17,58 +23,163 @@ namespace XaviGames.Props
         private float _intensityAtNight = 2f;
 
         [SerializeField]
+        private float _transitionSeconds = 1f;
+
+        [Header("State Source")]
+        [SerializeField]
         private BoolVariable _isNight;
 
+        [Header("Collision")]
         [SerializeField]
         private LayerMask _collisionLayerMask;
 
         [SerializeField]
-        private float _disableDelaySeconds;
+        private float _disableDelaySeconds = 1f;
 
-        private Coroutine _coroutine = null;
+        [SerializeField]
+        private LeanTweenType _easeType = LeanTweenType.easeInOutSine;
+
+        private Coroutine _coroutine;
+        private int _tweenId = -1;
+
+        private void Awake()
+        {
+            if (_light == null)
+            {
+                _light = GetComponentInChildren<Light>();
+            }
+        }
 
         private void OnEnable()
         {
-            _isNight.OnValueChanged += OnNightChanged;
-            OnNightChanged(_isNight.Value);
+            if (_isNight != null)
+            {
+                _isNight.OnValueChanged += OnNightChanged;
+                OnNightChanged(_isNight.Value);
+            }
+            else
+            {
+                ApplyIntensity(_intensityAtDay);
+            }
         }
 
         private void OnDisable()
         {
-            _isNight.OnValueChanged -= OnNightChanged;
+            if (_isNight != null)
+            {
+                _isNight.OnValueChanged -= OnNightChanged;
+            }
+
+            if (_tweenId != -1)
+            {
+                LeanTween.cancel(_tweenId);
+                _tweenId = -1;
+            }
+
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
         }
 
         private void OnCollisionEnter(Collision other)
         {
-            if (((1 << other.gameObject.layer) & _collisionLayerMask) != 0)
+            bool matches = (_collisionLayerMask.value & (1 << other.gameObject.layer)) != 0;
+            if (!matches)
             {
-                if (_coroutine != null)
-                {
-                    return;
-                }
+                return;
+            }
 
-
+            if (_coroutine == null)
+            {
                 _coroutine = StartCoroutine(DisableObjectCoroutine());
             }
         }
 
-        private void OnNightChanged(bool state)
+        private void OnNightChanged(bool isNight)
         {
-            float targetIntensity = state ? _intensityAtNight : _intensityAtDay;
-
-            LeanTween.value(gameObject, _light.intensity, targetIntensity, 1f).setOnUpdate((float val) =>
+            if (_light == null)
             {
-                _light.intensity = val;
-            });
+                return;
+            }
+
+            float target = isNight ? _intensityAtNight : _intensityAtDay;
+
+            if (target > 0f && !_light.enabled)
+            {
+                _light.enabled = true;
+            }
+
+            if (_tweenId != -1)
+            {
+                LeanTween.cancel(_tweenId);
+                _tweenId = -1;
+            }
+
+            _tweenId = LeanTween
+                .value(gameObject, _light.intensity, target, Mathf.Max(0.01f, _transitionSeconds))
+                .setEase(_easeType)
+                .setOnUpdate((float val) =>
+                {
+                    if (_light != null)
+                    {
+                        _light.intensity = val;
+                    }
+                })
+                .setOnComplete(() =>
+                {
+                    if (_light != null && Mathf.Approximately(target, 0f))
+                    {
+                        _light.enabled = false;
+                    }
+                    _tweenId = -1;
+                })
+                .id;
+        }
+
+        private void ApplyIntensity(float value)
+        {
+            if (_light == null)
+            {
+                return;
+            }
+
+            _light.intensity = value;
+            _light.enabled = value > 0f;
         }
 
         private IEnumerator DisableObjectCoroutine()
         {
-            _light.enabled = false;
-            
-            yield return new WaitForSeconds(_disableDelaySeconds);
+            if (_tweenId != -1)
+            {
+                LeanTween.cancel(_tweenId);
+                _tweenId = -1;
+            }
 
-            gameObject.SetActive(false);
+            if (_light != null)
+            {
+                _light.intensity = 0f;
+                _light.enabled = false;
+            }
+
+            yield return new WaitForSeconds(Mathf.Max(0f, _disableDelaySeconds));
+
+            Material material = _meshRenderer.material;
+            material.SetFloat("_Dissolve", 0f);
+
+            LeanTween.value(gameObject, 0f, 1f, 0.5f)
+            .setOnUpdate((float val) =>
+            {
+                material.SetFloat("_Dissolve", val);
+            })
+            .setOnComplete(() =>
+            {
+
+                gameObject.SetActive(false);
+            });
+
+            _coroutine = null;
         }
     }
 }
