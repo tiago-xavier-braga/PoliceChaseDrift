@@ -473,7 +473,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5557574880353106220}
   serializedVersion: 5
-  m_Mass: 10
+  m_Mass: 500
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 3, z: 0}
@@ -491,7 +491,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!114 &6026290339713284441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +510,7 @@ MonoBehaviour:
   _intensityAtNight: 60
   _transitionSeconds: 1
   _isNight: {fileID: 11400000, guid: e1a0724def9fb194c848de7ac731804e, type: 2}
+  _rigidbody: {fileID: 1962833427019949320}
   _collisionLayerMask:
     serializedVersion: 2
     m_Bits: 64

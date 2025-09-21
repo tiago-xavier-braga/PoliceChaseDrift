@@ -31,6 +31,9 @@ namespace XaviGames.Props
 
         [Header("Collision")]
         [SerializeField]
+        private Rigidbody _rigidbody;
+
+        [SerializeField]
         private LayerMask _collisionLayerMask;
 
         [SerializeField]
@@ -41,14 +44,6 @@ namespace XaviGames.Props
 
         private Coroutine _coroutine;
         private int _tweenId = -1;
-
-        private void Awake()
-        {
-            if (_light == null)
-            {
-                _light = GetComponentInChildren<Light>();
-            }
-        }
 
         private void OnEnable()
         {
@@ -157,11 +152,8 @@ namespace XaviGames.Props
                 _tweenId = -1;
             }
 
-            if (_light != null)
-            {
-                _light.intensity = 0f;
-                _light.enabled = false;
-            }
+            _light.intensity = 0f;
+            _light.enabled = false;
 
             yield return new WaitForSeconds(Mathf.Max(0f, _disableDelaySeconds));
 

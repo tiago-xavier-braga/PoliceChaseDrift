@@ -467,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ModelTransform>k__BackingField: {fileID: 3978888449833171972}
   <WheelCollider>k__BackingField: {fileID: 8011858983589246997}
-  <IsMotorized>k__BackingField: 0
+  <IsMotorized>k__BackingField: 1
   <IsSteerable>k__BackingField: 1
 --- !u!1 &5002692396231323119
 GameObject:
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ModelTransform>k__BackingField: {fileID: 4739092113528989318}
   <WheelCollider>k__BackingField: {fileID: 3828468553991655231}
-  <IsMotorized>k__BackingField: 0
+  <IsMotorized>k__BackingField: 1
   <IsSteerable>k__BackingField: 1
 --- !u!1 &7091306424307859213
 GameObject:
