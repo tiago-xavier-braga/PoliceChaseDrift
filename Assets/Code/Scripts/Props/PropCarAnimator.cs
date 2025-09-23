@@ -1,6 +1,4 @@
-using UnityEditor.Animations;
 using UnityEngine;
-using XaviEssencials.Runtime;
 
 namespace XaviGames.Props
 {
