@@ -1,5 +1,5 @@
 using UnityEngine;
-using XaviGames.AI;
+using XaviGames.Bot;
 
 namespace XaviGames.Player
 {
@@ -7,7 +7,7 @@ namespace XaviGames.Player
     {
         private void OnCollisionEnter(Collision collision)
         {
-            GameObject parentObject = collision.gameObject.GetComponentInParent<AiController>()?.gameObject;
+            GameObject parentObject = collision.gameObject.GetComponentInParent<BotController>()?.gameObject;
 
             if (parentObject != null)
             {

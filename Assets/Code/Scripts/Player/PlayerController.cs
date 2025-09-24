@@ -38,6 +38,7 @@ namespace XaviGames.Player
         {
             if (!_isMatchStarted.Value)
             {
+                CarMovementController.OnMoveInput(Vector2.zero);
                 return;
             }
 

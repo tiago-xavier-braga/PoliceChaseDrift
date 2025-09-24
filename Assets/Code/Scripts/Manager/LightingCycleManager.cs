@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using UnityEngine;
 using XaviGames.ObjectVariable;
 
@@ -17,6 +18,8 @@ namespace XaviGames.Manager
         [SerializeField]
         private float _cycleTimeInSeconds = 60f;
 
+        private bool _lastIsNightValue = false;
+
         private void FixedUpdate()
         {
             if (!_isMatchStarted.Value)
@@ -28,7 +31,14 @@ namespace XaviGames.Manager
             float deltaAngle = degreesPerSecond * Time.fixedDeltaTime;
             _lightTransform.Rotate(Vector3.right * deltaAngle, Space.Self);
             float currentAngle = _lightTransform.rotation.eulerAngles.x;
-            _isNight.SetValue(currentAngle > 180f && currentAngle < 360f);
+
+            bool isNightNow = currentAngle > 180f && currentAngle < 360f;
+
+            if (isNightNow != _lastIsNightValue)
+            {
+                _isNight.SetValue(isNightNow);
+                _lastIsNightValue = isNightNow;
+            }
         }
     }
 }

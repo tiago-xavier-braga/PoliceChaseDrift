@@ -5,19 +5,19 @@ using XaviGames.Car;
 using XaviGames.ObjectVariable;
 using XaviGames.Player;
 
-namespace XaviGames.AI
+namespace XaviGames.Bot
 {
-    public class AiController : MonoBehaviour
+    public class BotController : MonoBehaviour
     {
         [Header("Refs")]
         [SerializeField]
         private CarMovementController _carMovementController;
 
         [SerializeField]
-        private PlayerController _playerController;
+        private BoolVariable _isMatchStarted;
 
         [SerializeField]
-        private BoolVariable _isMatchStarted;
+        private MeshRenderer _meshRenderer;
 
         [Header("Tuning")]
         [SerializeField]
@@ -35,15 +35,27 @@ namespace XaviGames.AI
         [SerializeField]
         private float _reverseInput = -1f;
 
+        private void Start()
+        {
+            Material material = _meshRenderer.material;
+            material.SetFloat("_Dissolve", 0f);
+            LeanTween.value(gameObject, 0f, 1f, 0.5f)
+                .setOnUpdate((float val) =>
+                {
+                    material.SetFloat("_Dissolve", val);
+                });
+        }
+
         private void FixedUpdate()
         {
             if (!_isMatchStarted.Value)
             {
+                _carMovementController.OnMoveInput(Vector2.zero);
                 return;
             }
 
             Transform carTransform = _carMovementController.transform;
-            Transform playerCarTransform = _playerController.CarTransform;
+            Transform playerCarTransform = PlayerController.Instance.CarTransform;
 
             Vector3 directionToPlayer = playerCarTransform.position - carTransform.position;
             float angleToPlayer = Vector3.SignedAngle(carTransform.forward, directionToPlayer, Vector3.up);

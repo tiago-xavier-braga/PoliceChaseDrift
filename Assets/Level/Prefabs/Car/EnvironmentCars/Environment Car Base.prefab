@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4269700127705957054}
   - component: {fileID: 2164120296118429444}
   - component: {fileID: 5658035361015612722}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Front Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 7452102579162645388}
   - component: {fileID: 1473044907619688015}
   - component: {fileID: 5077029212052164362}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 5554010409296911856}
   - component: {fileID: 8951043985924343186}
   - component: {fileID: 5679640262528827341}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Left Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2183137291637509131}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RR Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4730254324755180431}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RL Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 7791427347949630732}
   - component: {fileID: 4041964707664353096}
   - component: {fileID: 7753471665361838156}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wheel Back Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099646632070120299}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FR Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 2838356736498412127}
   - component: {fileID: 6965262792862779316}
   - component: {fileID: 9150691782198396387}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Right Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 9215127814627768823}
   - component: {fileID: 8263581367547908500}
   - component: {fileID: 6601537677657648911}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Front Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4884788191478853746}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 4739092113528989318}
   - component: {fileID: 8548262049542727972}
   - component: {fileID: 8776192183198724579}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wheel Front Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 3989768931232351882}
   - component: {fileID: 8202622177612496897}
   - component: {fileID: 55726540275775162}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: spoiler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 3978888449833171972}
   - component: {fileID: 530045634239315672}
   - component: {fileID: 2802693303279171505}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wheel Front Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2321234205085506476}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2758110272183238450}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FL Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 7537453080048196333}
   - component: {fileID: 7088958356567372268}
   - component: {fileID: 4994686421873999779}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wheel Back Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5751508975121881523}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824399129497248119}
   - component: {fileID: 7873164938572939607}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Environment Car Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
