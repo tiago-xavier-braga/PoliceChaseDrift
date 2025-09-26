@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/Ui/Styles/LoadingStyle.uss?fileID=7433441132597879392&amp;guid=27def1f012c3a8641bb1146cd7691ad6&amp;type=3#LoadingStyle" />
+    <ui:VisualElement class="background" style="flex-grow: 1; background-image: resource(&apos;TXT_LoadingBackground&apos;);" />
+    <ui:VisualElement name="VisualElement" view-data-key="spiner" style="flex-grow: 1; background-image: resource(&apos;TXT_Spiner&apos;); background-size: 100% 100%; -unity-background-scale-mode: stretch-to-fill; position: absolute; justify-content: space-between; align-self: flex-end; align-content: flex-end; width: 150px; height: 150px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px; margin-left: 40px; align-items: center; opacity: 1; bottom: 0; right: 0; rotate: 0; display: flex; visibility: visible;" />
+</ui:UXML>
