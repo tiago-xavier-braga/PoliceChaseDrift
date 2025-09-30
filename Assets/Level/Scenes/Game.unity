@@ -932,6 +932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ai Car
       objectReference: {fileID: 0}
+    - target: {fileID: 4024901452684827058, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4789958028335604968, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.3

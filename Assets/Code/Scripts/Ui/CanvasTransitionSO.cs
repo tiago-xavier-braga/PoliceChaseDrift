@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace XaviGames.UI
+namespace XaviGames.Ui
 {
-    [CreateAssetMenu(fileName = "CanvasTransitionSO", menuName = "Xavi Games/UI/CanvasTransitionSO")]
+    [CreateAssetMenu(fileName = "CanvasTransitionSO", menuName = "Xavi Games/Ui/CanvasTransitionSO")]
     public class CanvasTransitionSO : ScriptableObject
     {
         [field: Header("Canvas Group Controller")]

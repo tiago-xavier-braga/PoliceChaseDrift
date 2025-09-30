@@ -63,7 +63,7 @@ namespace XaviGames.Car
         [field: SerializeField]
         public float DriftAngularDamping { get; private set; }
 
-        [field: Header("UI Parameters")]
+        [field: Header("Ui Parameters")]
         [field: SerializeField]
         public int UiTopSpeed { get; private set; }
 

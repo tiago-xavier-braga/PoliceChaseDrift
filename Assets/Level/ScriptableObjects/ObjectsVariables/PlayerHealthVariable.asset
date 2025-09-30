@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df738aa5a8c82d45b04ff340702084d, type: 3}
   m_Name: PlayerHealthVariable
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.ObjectVariable.FloatVariable
-  _value: 10
-  <Value>k__BackingField: 10
+  _value: 20
+  <Value>k__BackingField: 0

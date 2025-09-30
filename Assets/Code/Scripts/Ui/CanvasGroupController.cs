@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using XaviEssencials.Runtime;
-using XaviGames.UI;
+using XaviEssencials.Shared;
+using XaviGames.Ui;
 
 namespace XaviGames.Ui
 {
@@ -17,6 +18,7 @@ namespace XaviGames.Ui
         [SerializeField]
         private bool _isEnabled = false;
 
+        [Button("Enable", true)]
         public virtual void EnableCanvas()
         {
             if (_isEnabled)
@@ -25,18 +27,16 @@ namespace XaviGames.Ui
             }
 
             LeanTween.cancel(gameObject);
-
             LeanTween.alphaCanvas(_canvasGroup, 1f, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
-
             LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.EnableCanvasScale, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
-
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
             _isEnabled = true;
         }
-        
+
+        [Button("Disable", true)]
         public virtual void DisableCanvas()
         {
             if (!_isEnabled)
@@ -45,13 +45,10 @@ namespace XaviGames.Ui
             }
 
             LeanTween.cancel(gameObject);
-
             LeanTween.alphaCanvas(_canvasGroup, 0f, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
-
             LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.DisableCanvasScale, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
-
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
             _isEnabled = false;
