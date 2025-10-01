@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 38726a507ce8dcd4ab305b64f7b07029, type: 2}
+  m_Motion: {fileID: 7400000, guid: 09422fed999cc1140843c4148041d7f7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpinerLoading
+  m_Name: SppinerLoading
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

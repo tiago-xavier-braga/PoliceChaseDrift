@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cce3c9cc6009d9a4fab34e6692527f7d, type: 3}
-  m_Name: SceneBundle
+  m_Name: InitialSceneBundle
   m_EditorClassIdentifier: XaviEssencials::XaviEssencials.Runtime.SceneBundle
   <SceneSingle>k__BackingField:
     _sceneAsset: {fileID: 102900000, guid: 380c3e0420a9e994ebe45281094075ed, type: 3}

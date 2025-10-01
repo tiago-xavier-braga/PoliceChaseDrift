@@ -14,13 +14,6 @@ namespace XaviGames.Car
         public CarParameter GetCarParameter(string id)
         {
             var carParameter = CarsParameters.FirstOrDefault(parameter => parameter.Id == id);
-
-            if (carParameter is null)
-            {
-                GameLogger.LogWarning(
-                    $"Car with id {id} not found in the database. Returning default car.", LogCategory.Unity);
-            }
-
             return carParameter;
         }
     }

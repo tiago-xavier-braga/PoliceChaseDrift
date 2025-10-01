@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df738aa5a8c82d45b04ff340702084d, type: 3}
-  m_Name: PlayerHealthVariable
-  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.ObjectVariable.FloatVariable
-  _value: 10
+  m_Script: {fileID: 11500000, guid: 7425a4e2e7328d2428207cb3dfb3d640, type: 3}
+  m_Name: IsReadyStart
+  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.ObjectVariable.BoolVariable
+  _value: 0
   <Value>k__BackingField: 0

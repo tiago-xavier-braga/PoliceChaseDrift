@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using XaviEssencials.Runtime;
@@ -15,6 +17,7 @@ namespace XaviGames.Ui
         [SerializeField]
         private float _loadingDuration = 0.5f;
 
+        private int _leanTweenId;
         public static LoadingCanvasController Instance { get; private set; } = null;
 
         private void Awake()
@@ -29,45 +32,36 @@ namespace XaviGames.Ui
             DontDestroyOnLoad(gameObject);
         }
 
-        public void EnableLoading() => StartLoadingAnimation();
-
-        public async Task EnableLoadingAsync()
+        public void EnableLoading()
         {
-            var tcs = new TaskCompletionSource<bool>();
-            StartLoadingAnimation(() => tcs.SetResult(true));
-            await tcs.Task;
+            if (_loadingCanvasGroup.alpha == 1f)
+            {
+                return;
+            }
+
+            _loadingCanvasGroup.alpha = 0f;
+            LeanTween.cancel(_leanTweenId);
+            _leanTweenId = LeanTween.alphaCanvas(_loadingCanvasGroup, 1f, _loadingDuration)
+                .setEase(_loadingTweenType).id;
+
+            _loadingCanvasGroup.interactable = true;
+            _loadingCanvasGroup.blocksRaycasts = true;
         }
 
         public void DisableLoading()
         {
-            if (_loadingCanvasGroup == null)
+            if (_loadingCanvasGroup.alpha == 0f)
             {
-                GameLogger.LogError("Loading Canvas Group is null", LogCategory.Client);
                 return;
             }
 
-            LeanTween.cancel(gameObject);
-
-            LeanTween.alphaCanvas(_loadingCanvasGroup, 0f, _loadingDuration)
-                .setEase(LeanTweenType.easeInOutQuad)
-                .setOnComplete(() => GameLogger.Log("Loading disabled", LogCategory.Client));
+            _loadingCanvasGroup.alpha = 1f;
+            LeanTween.cancel(_leanTweenId);
+            _leanTweenId = LeanTween.alphaCanvas(_loadingCanvasGroup, 0f, _loadingDuration)
+                .setEase(LeanTweenType.easeInOutQuad).id;
 
             _loadingCanvasGroup.interactable = false;
             _loadingCanvasGroup.blocksRaycasts = false;
-        }
-
-        private void StartLoadingAnimation(System.Action onComplete = null)
-        {
-            LeanTween.cancel(gameObject);
-            LeanTween.alphaCanvas(_loadingCanvasGroup, 1f, _loadingDuration)
-                .setEase(_loadingTweenType)
-                .setOnComplete(() => {
-                    GameLogger.Log("Loading enabled", LogCategory.Client);
-                    onComplete?.Invoke();
-                });
-
-            _loadingCanvasGroup.interactable = true;
-            _loadingCanvasGroup.blocksRaycasts = true;
         }
     }
 }

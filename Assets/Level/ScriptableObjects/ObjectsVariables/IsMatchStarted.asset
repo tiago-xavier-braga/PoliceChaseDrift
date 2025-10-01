@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7425a4e2e7328d2428207cb3dfb3d640, type: 3}
   m_Name: IsMatchStarted
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.ObjectVariable.BoolVariable
-  _value: 1
-  <Value>k__BackingField: 1
+  _value: 0
+  <Value>k__BackingField: 0
