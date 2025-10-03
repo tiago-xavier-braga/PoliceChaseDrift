@@ -4,7 +4,7 @@ using XaviGames.ObjectVariable;
 
 namespace XaviGames.Ui
 {
-    public class MainMenu : MonoBehaviour
+    public class MainMenuController : MonoBehaviour
     {
         [SerializeField]
         private BoolVariable _isReadyStart;
