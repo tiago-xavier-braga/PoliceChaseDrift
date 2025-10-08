@@ -20,5 +20,11 @@ namespace XaviEssencials.Shared
             ButtonName = string.Empty;
             ShowInPlayModeOnly = showInPlayModeOnly;
         }
+
+        public ButtonAttribute()
+        {
+            ButtonName = string.Empty;
+            ShowInPlayModeOnly = false;
+        }
     }
 }

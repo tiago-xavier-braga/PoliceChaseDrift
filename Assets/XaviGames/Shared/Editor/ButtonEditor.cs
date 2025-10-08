@@ -22,18 +22,19 @@ namespace XaviEssencials.Editor
                 var buttonAttribute = method.GetCustomAttribute<ButtonAttribute>();
                 if (buttonAttribute != null)
                 {
-                    bool shouldShow = buttonAttribute.ShowInPlayModeOnly ? Application.isPlaying : !Application.isPlaying;
+                    bool shouldShow = buttonAttribute.ShowInPlayModeOnly && !Application.isPlaying;
 
                     if (shouldShow)
                     {
-                        string buttonName = string.IsNullOrEmpty(buttonAttribute.ButtonName)
-                            ? method.Name
-                            : buttonAttribute.ButtonName;
+                        return;
+                    }
 
-                        if (GUILayout.Button(buttonName))
-                        {
-                            method.Invoke(targetMono, null);
-                        }
+                    string buttonName = string.IsNullOrEmpty(buttonAttribute.ButtonName) 
+                        ? method.Name : buttonAttribute.ButtonName;
+
+                    if (GUILayout.Button(buttonName))
+                    {
+                        method.Invoke(targetMono, null);
                     }
                 }
             }
