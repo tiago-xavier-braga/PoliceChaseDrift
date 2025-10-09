@@ -526,127 +526,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2700677571051360976, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
   m_PrefabInstance: {fileID: 7920228792848999652}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &604749148
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 604749149}
-  - component: {fileID: 604749151}
-  - component: {fileID: 604749150}
-  m_Layer: 6
-  m_Name: Spot Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &604749149
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604749148}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.09045874, y: 0, z: 0, w: 0.9959002}
-  m_LocalPosition: {x: -0.5, y: 0.556, z: 1.242}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1975858320}
-  m_LocalEulerAnglesHint: {x: 10.38, y: 0, z: 0}
---- !u!114 &604749150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604749148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_Version: 4
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
---- !u!108 &604749151
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604749148}
-  m_Enabled: 1
-  serializedVersion: 11
-  m_Type: 0
-  m_Color: {r: 0.9529412, g: 1, b: 0.6745098, a: 1}
-  m_Intensity: 0
-  m_Range: 3.0492277
-  m_SpotAngle: 111.107086
-  m_InnerSpotAngle: 23.169462
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 257
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!1 &628858029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Manager.MatchManager
   _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+  _gameOverCanvas: {fileID: 366475124}
 --- !u!4 &1437356826
 Transform:
   m_ObjectHideFlags: 0
@@ -1725,127 +1605,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535924844}
   m_CullTransparentMesh: 1
---- !u!1 &1660138437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1660138438}
-  - component: {fileID: 1660138440}
-  - component: {fileID: 1660138439}
-  m_Layer: 6
-  m_Name: Spot Light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1660138438
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660138437}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.09045874, y: 0, z: 0, w: 0.9959002}
-  m_LocalPosition: {x: 0.5, y: 0.556, z: 1.242}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1975858320}
-  m_LocalEulerAnglesHint: {x: 10.38, y: 0, z: 0}
---- !u!114 &1660138439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660138437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_Version: 4
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
---- !u!108 &1660138440
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660138437}
-  m_Enabled: 1
-  serializedVersion: 11
-  m_Type: 0
-  m_Color: {r: 0.9529412, g: 1, b: 0.6745098, a: 1}
-  m_Intensity: 0
-  m_Range: 3.0492277
-  m_SpotAngle: 111.107086
-  m_InnerSpotAngle: 23.169462
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 257
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!1 &1780671906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,78 +1949,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sedan Sports
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7469691533098938820, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 604749149}
-    - targetCorrespondingSourceObject: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1660138438}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1975858321}
-    - targetCorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1975858324}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
 --- !u!114 &1975858318 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8955996242041112816, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
   m_PrefabInstance: {fileID: 1975858317}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975858319}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d6ab33fde421d44a8a4b127a362d9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1975858319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-  m_PrefabInstance: {fileID: 1975858317}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1975858320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
   m_PrefabInstance: {fileID: 1975858317}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1975858321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975858319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456994dff6180814bba757d6f79649e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Player.PlayerCollision
-  _playerHealth: {fileID: 0}
-  _collisionDamage: 1
---- !u!114 &1975858324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975858319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a2943fde8ade6448bf9c2d24fcca360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Car.CarLightController
-  _leftLight: {fileID: 604749151}
-  _rightLight: {fileID: 1660138440}
-  _intensityAtDay: 0
-  _intensityAtNight: 5
-  _transitionSeconds: 1
-  _onNightChangedEventChannel: {fileID: 0}
-  _easeType: 16
 --- !u!1 &2039348508
 GameObject:
   m_ObjectHideFlags: 0
