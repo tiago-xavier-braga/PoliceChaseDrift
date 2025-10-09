@@ -1,44 +1,38 @@
 using UnityEngine;
 using UnityEngine.Events;
 using XaviEssencials.Runtime;
+using XaviGames.Events;
 using XaviGames.Manager;
-using XaviGames.ObjectVariable;
 
 namespace XaviGames.Player
 {
-    public class PlayerHealth : MonoBehaviour
+    [CreateAssetMenu(fileName = "PlayerHealth", menuName = "Xavi Games/Player/PlayerHealth")]
+    public class PlayerHealth : ScriptableObject
     {
         [SerializeField]
-        private FloatVariable _playerHealthVariable;
+        private float _health;
 
-        [SerializeField]
-        private BoolVariable _isMatchStarted;
+        [field: SerializeField]
+        [field: ReadOnly]
+        public float Health { get; private set; }
 
-        [SerializeField]
-        private MatchManager _matchManager;
+        public UnityAction<float> OnHealthChanged;
+
+        private void OnEnable()
+        {
+            Health = _health;
+        }
 
         public void TakeDamage(float damage)
         {
-            _playerHealthVariable.SetValue(Mathf.Max(0, _playerHealthVariable.Value - damage));
-            HandleHealthChanged();
+            Health = Mathf.Max(0, Health - damage);
+            OnHealthChanged?.Invoke(Health);
         }
 
         public void Heal(float amount)
         {
-            _playerHealthVariable.SetValue(_playerHealthVariable.Value + amount);
-        }
-
-        private void HandleHealthChanged()
-        {
-            if (!_isMatchStarted.Value)
-            {
-                return;
-            }
-
-            if (_playerHealthVariable.Value <= 0)
-            {
-                _matchManager.FinishMatch();
-            }
+            Health += amount;
+            OnHealthChanged?.Invoke(Health);
         }
     }
 }

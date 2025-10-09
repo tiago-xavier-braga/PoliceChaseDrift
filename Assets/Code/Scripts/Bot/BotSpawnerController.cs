@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XaviEssencials.Runtime;
-using XaviGames.ObjectVariable;
+using XaviGames.Events;
 
 namespace XaviGames.Bot
 {
     public class BotSpawnerController : MonoBehaviour
     {
         [SerializeField]
-        private BoolVariable _isNight;
+        private EventChannel _onNightChangedEventChannel;
 
         [SerializeField]
         private int _numberOfBotsToSpawn = 5;
@@ -27,12 +27,12 @@ namespace XaviGames.Bot
 
         private void OnEnable()
         {
-            _isNight.OnValueChanged += HandleIsNightChanged;
+            _onNightChangedEventChannel.Subscribe(HandleIsNightChanged);
         }
 
         private void OnDisable()
         {
-            _isNight.OnValueChanged -= HandleIsNightChanged;
+            _onNightChangedEventChannel.Unsubscribe(HandleIsNightChanged);
         }
 
         private void Start()
@@ -46,12 +46,14 @@ namespace XaviGames.Bot
             }
         }
 
-        private void HandleIsNightChanged(bool isNight)
+        private void HandleIsNightChanged(object state)
         {
-            if (isNight)
+            if (!(bool)state)
             {
-                SpawnBot();
+                return;
             }
+         
+            SpawnBot();
         }
 
         private void SpawnBot()

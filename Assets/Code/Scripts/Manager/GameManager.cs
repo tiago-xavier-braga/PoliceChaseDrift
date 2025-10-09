@@ -1,32 +1,35 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using XaviEssencials.Runtime;
-using XaviGames.ObjectVariable;
+using XaviGames.Events;
 using XaviGames.Ui;
 
 namespace XaviGames.Manager
 {
-
     public class GameManager : MonoBehaviour
     {
         [SerializeField]
         private SceneBundle _sceneBundle;
 
-        [Header("Variables")]
         [SerializeField]
-        private BoolVariable _isReadyStart;
-        public static GameManager Instance { get; private set; } = null;
+        private EventChannel _onGameStateChanged;
+
+        [Header("Debug")]
+        [SerializeField]
+        [ReadOnly]
+        private GameState _gameState;
+
+        private void OnEnable()
+        {
+            _onGameStateChanged.Subscribe(HandleGameStateChanged);
+        }
+
+        private void OnDisable()
+        {
+            _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+        }
 
         private void Awake()
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -41,8 +44,20 @@ namespace XaviGames.Manager
             if (percent >= 1f)
             {
                 LoadingCanvasController.Instance.DisableLoading();
-                _isReadyStart.SetValue(true);
+                _onGameStateChanged.RaiseEvent(GameState.Ready);
             }
+        }
+
+        private void HandleGameStateChanged(object newState)
+        {
+            if (newState == null)
+            {
+
+                Debug.LogError("Trying to change to a null _gameState");
+                return;
+            }
+
+            _gameState = (GameState)newState;
         }
     }
 }

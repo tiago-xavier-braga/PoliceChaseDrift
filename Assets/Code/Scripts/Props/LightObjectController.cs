@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using XaviGames.ObjectVariable;
-using static UnityEngine.GraphicsBuffer;
+using XaviGames.Events;
 
 namespace XaviGames.Props
 {
@@ -27,7 +26,7 @@ namespace XaviGames.Props
 
         [Header("State Source")]
         [SerializeField]
-        private BoolVariable _isNight;
+        private EventChannel _onNightChangedEventChannel;
 
         [Header("Collision")]
         [SerializeField]
@@ -47,23 +46,16 @@ namespace XaviGames.Props
 
         private void OnEnable()
         {
-            if (_isNight != null)
+            _onNightChangedEventChannel.Subscribe(OnNightChanged);
+            if (_onNightChangedEventChannel.Parameter != null)
             {
-                _isNight.OnValueChanged += OnNightChanged;
-                OnNightChanged(_isNight.Value);
-            }
-            else
-            {
-                ApplyIntensity(_intensityAtDay);
+                OnNightChanged((bool)_onNightChangedEventChannel.Parameter);
             }
         }
 
         private void OnDisable()
         {
-            if (_isNight != null)
-            {
-                _isNight.OnValueChanged -= OnNightChanged;
-            }
+            _onNightChangedEventChannel.Unsubscribe(OnNightChanged);
 
             if (_tweenId != -1)
             {
@@ -92,14 +84,14 @@ namespace XaviGames.Props
             }
         }
 
-        private void OnNightChanged(bool isNight)
+        private void OnNightChanged(object newState)
         {
             if (_light == null)
             {
                 return;
             }
 
-            float target = isNight ? _intensityAtNight : _intensityAtDay;
+            float target = (bool)newState ? _intensityAtNight : _intensityAtDay;
 
             if (target > 0f && !_light.enabled)
             {

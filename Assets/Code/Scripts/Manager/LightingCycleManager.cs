@@ -1,5 +1,5 @@
 using UnityEngine;
-using XaviGames.ObjectVariable;
+using XaviGames.Events;
 
 namespace XaviGames.Manager
 {
@@ -9,19 +9,31 @@ namespace XaviGames.Manager
         private Transform _lightTransform;
 
         [SerializeField]
-        private BoolVariable _isMatchStarted;
+        private EventChannel _onGameStateChanged;
 
         [SerializeField]
-        private BoolVariable _isNight;
+        private EventChannel _onNightChangedEventChannel;
 
         [SerializeField]
         private float _cycleTimeInSeconds = 60f;
 
+        private GameState _gameState = GameState.None;
+        private bool _isNight = false;
         private bool _lastIsNightValue = false;
+
+        private void OnEnable()
+        {
+            _onGameStateChanged.Subscribe(HandleGameStateChanged);
+        }
+
+        private void OnDisable()
+        {
+            _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+        }
 
         private void FixedUpdate()
         {
-            if (!_isMatchStarted.Value)
+            if (_gameState != GameState.InGame)
             {
                 return;
             }
@@ -35,9 +47,14 @@ namespace XaviGames.Manager
 
             if (isNightNow != _lastIsNightValue)
             {
-                _isNight.SetValue(isNightNow);
+                _onNightChangedEventChannel.RaiseEvent(isNightNow);
                 _lastIsNightValue = isNightNow;
             }
+        }
+
+        private void HandleGameStateChanged(object newState)
+        {
+            _gameState = (GameState)newState;
         }
     }
 }

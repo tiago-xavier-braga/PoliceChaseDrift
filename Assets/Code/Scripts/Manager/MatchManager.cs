@@ -1,8 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using XaviEssencials.Runtime;
 using XaviEssencials.Shared;
-using XaviGames.ObjectVariable;
+using XaviGames.Events;
 using XaviGames.Player;
 using XaviGames.Ui;
 
@@ -14,10 +14,20 @@ namespace XaviGames.Manager
         private PlayerHealth _playerHealth;
 
         [SerializeField]
-        private BoolVariable _isMatchStarted;
+        private EventChannel _onGameStateChanged;
 
-        [SerializeField]
-        private BoolVariable _isReadyStart;
+        private GameState _gameState = GameState.None;
+
+        private void OnEnable()
+        {
+            _onGameStateChanged.Subscribe(HandleGameStateChanged);
+        }
+
+
+        private void OnDisable()
+        {
+            _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+        }
 
         private void Start()
         {
@@ -27,26 +37,26 @@ namespace XaviGames.Manager
         [Button("Start", true)]
         public void StartMatch()
         {
-            if (_isMatchStarted.Value)
+            if (_gameState != GameState.Ready)
             {
+                Debug.LogWarning("Match cannot be started. Current state: " + _gameState);
                 return;
             }
-
-            if (!_isReadyStart.Value)
-            {
-                return;
-            }
-
-            _isMatchStarted.SetValue(true);
-            _isReadyStart.SetValue(false);
-            Debug.Log("Match Started");
+            _onGameStateChanged.RaiseEvent(GameState.InGame);
         }
 
         [Button("Finish", true)]
         public void FinishMatch()
         {
-            _isMatchStarted.SetValue(false);
             Debug.Log("Match Finished");
+            
+            if (_gameState != GameState.InGame)
+            {
+                Debug.LogWarning("Match cannot be finished. Current state: " + _gameState);
+                return;
+            }
+
+            _onGameStateChanged.RaiseEvent(GameState.GameOver);
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
@@ -57,6 +67,11 @@ namespace XaviGames.Manager
             {
                 StartMatch();
             }
+        }
+
+        private void HandleGameStateChanged(object newState)
+        {
+            _gameState = (GameState)newState;
         }
     }
 }

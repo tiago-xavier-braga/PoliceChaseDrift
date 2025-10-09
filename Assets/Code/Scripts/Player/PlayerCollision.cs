@@ -5,6 +5,12 @@ namespace XaviGames.Player
 {
     public class PlayerCollision : MonoBehaviour
     {
+        [SerializeField]
+        private PlayerHealth _playerHealth;
+
+        [SerializeField]
+        private float _collisionDamage = 1f;
+
         private void OnCollisionEnter(Collision collision)
         {
             GameObject parentObject = collision.gameObject.GetComponentInParent<BotController>()?.gameObject;
@@ -13,9 +19,7 @@ namespace XaviGames.Player
             {
                 Debug.Log("PlayerCollision: OnCollisionEnter with " + collision.gameObject.name);
 
-                PlayerHealth playerHealth = PlayerController.Instance.PlayerHealth;
-
-                playerHealth.TakeDamage(1f);
+                _playerHealth.TakeDamage(_collisionDamage);
             }
         }
     }

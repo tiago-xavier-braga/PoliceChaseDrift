@@ -1,5 +1,5 @@
 using UnityEngine;
-using XaviGames.ObjectVariable;
+using XaviGames.Events;
 
 namespace XaviGames.Car
 {
@@ -21,27 +21,30 @@ namespace XaviGames.Car
         [SerializeField]
         private float _transitionSeconds = 1f;
 
-        [Header("State Source")]
         [SerializeField]
-        private BoolVariable _isNight;
+        private EventChannel _onNightChangedEventChannel;
 
         [SerializeField]
         private LeanTweenType _easeType = LeanTweenType.easeInOutSine;
 
         private void OnEnable()
         {
-            _isNight.OnValueChanged += OnNightChanged;
-            OnNightChanged(_isNight.Value);
+            _onNightChangedEventChannel.Subscribe(OnNightChanged);
+
+            if (_onNightChangedEventChannel.Parameter != null)
+            {
+                OnNightChanged(_onNightChangedEventChannel.Parameter);
+            }
         }
 
         private void OnDisable()
         {
-            _isNight.OnValueChanged -= OnNightChanged;
+            _onNightChangedEventChannel.Unsubscribe(OnNightChanged);
         }
 
-        private void OnNightChanged(bool isNight)
+        private void OnNightChanged(object state)
         {
-            float target = isNight ? _intensityAtNight : _intensityAtDay;
+            float target = (bool)state ? _intensityAtNight : _intensityAtDay;
 
             LeanTween
                 .value(gameObject, _leftLight.intensity, target, Mathf.Max(0.01f, _transitionSeconds))

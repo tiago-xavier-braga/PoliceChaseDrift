@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using XaviGames.Car;
-using XaviGames.ObjectVariable;
+using XaviGames.Events;
+using XaviGames.Manager;
 
 namespace XaviGames.Player
 {
@@ -14,13 +16,23 @@ namespace XaviGames.Player
         [field: SerializeField]
         public CarMovementController CarMovementController { get; private set; }
 
-        [field: SerializeField]
-        public PlayerHealth PlayerHealth { get; private set; }
-
         [SerializeField]
-        private BoolVariable _isMatchStarted;
+        private EventChannel _onGameStateChanged;
+
+        private GameState _gameState = GameState.None;
 
         public static PlayerController Instance { get; private set; }
+
+        private void OnEnable()
+        {
+            _onGameStateChanged.Subscribe(HandleGameStateChanged);
+        }
+
+
+        private void OnDisable()
+        {
+            _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+        }
 
         private void Awake()
         {
@@ -36,7 +48,7 @@ namespace XaviGames.Player
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
-            if (!_isMatchStarted.Value)
+            if (_gameState != GameState.InGame)
             {
                 CarMovementController.OnMoveInput(Vector2.zero);
                 return;
@@ -48,7 +60,7 @@ namespace XaviGames.Player
 
         public void OnHandbrake(InputAction.CallbackContext context)
         {
-            if (!_isMatchStarted.Value)
+            if (_gameState != GameState.InGame)
             {
                 return;
             }
@@ -63,6 +75,11 @@ namespace XaviGames.Player
                     CarMovementController.OnHandbrake(false);
                     break;
             }
+        }
+
+        private void HandleGameStateChanged(object state)
+        {
+            _gameState = (GameState)state;
         }
     }
 }

@@ -1,9 +1,9 @@
-using System;
 using UnityEngine;
 using XaviEssencials.Runtime;
 using XaviGames.Car;
-using XaviGames.ObjectVariable;
 using XaviGames.Player;
+using XaviGames.Manager;
+using XaviGames.Events;
 
 namespace XaviGames.Bot
 {
@@ -14,7 +14,7 @@ namespace XaviGames.Bot
         private CarMovementController _carMovementController;
 
         [SerializeField]
-        private BoolVariable _isMatchStarted;
+        private EventChannel _onGameStateChanged;
 
         [SerializeField]
         private MeshRenderer _meshRenderer;
@@ -35,6 +35,20 @@ namespace XaviGames.Bot
         [SerializeField]
         private float _reverseInput = -1f;
 
+        [SerializeField]
+        [ReadOnly]
+        private GameState _gameState = GameState.None;
+
+        private void OnEnable()
+        {
+            _onGameStateChanged.Subscribe(HandleGameStateChanged);
+        }
+
+        private void OnDisable()
+        {
+            _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+        }
+
         private void Start()
         {
             Material material = _meshRenderer.material;
@@ -48,7 +62,7 @@ namespace XaviGames.Bot
 
         private void FixedUpdate()
         {
-            if (!_isMatchStarted.Value)
+            if (_gameState != GameState.InGame)
             {
                 _carMovementController.OnMoveInput(Vector2.zero);
                 return;
@@ -79,6 +93,11 @@ namespace XaviGames.Bot
             }
 
             _carMovementController.OnMoveInput(inputVector);
+        }
+
+        private void HandleGameStateChanged(object newState)
+        {
+            _gameState = (GameState)newState;
         }
     }
 }
