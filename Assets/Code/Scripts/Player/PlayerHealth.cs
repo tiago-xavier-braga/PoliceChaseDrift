@@ -34,5 +34,11 @@ namespace XaviGames.Player
             Health += amount;
             OnHealthChanged?.Invoke(Health);
         }
+
+        public void ResetHealth()
+        {
+            Health = _health;
+            OnHealthChanged?.Invoke(Health);
+        }
     }
 }

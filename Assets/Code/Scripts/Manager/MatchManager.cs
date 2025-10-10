@@ -17,6 +17,9 @@ namespace XaviGames.Manager
         private EventChannel _onGameStateChanged;
 
         [SerializeField]
+        private CanvasGroupController _initialMenuCanvas;
+
+        [SerializeField]
         private CanvasGroupController _gameOverCanvas;
 
         private GameState _gameState = GameState.None;
@@ -47,6 +50,8 @@ namespace XaviGames.Manager
                 Debug.LogWarning("Match cannot be started. Current state: " + _gameState);
                 return;
             }
+
+            _initialMenuCanvas.DisableCanvas();
             _onGameStateChanged.RaiseEvent(GameState.InGame);
         }
 
@@ -60,6 +65,7 @@ namespace XaviGames.Manager
             }
 
             _gameOverCanvas.EnableCanvas();
+            _playerHealth.ResetHealth();
             _onGameStateChanged.RaiseEvent(GameState.GameOver);
         }
 

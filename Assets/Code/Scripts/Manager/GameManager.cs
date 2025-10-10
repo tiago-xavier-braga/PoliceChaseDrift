@@ -1,6 +1,7 @@
 using UnityEngine;
 using XaviEssencials.Runtime;
 using XaviGames.Events;
+using XaviGames.Player;
 using XaviGames.Ui;
 
 namespace XaviGames.Manager
@@ -13,6 +14,12 @@ namespace XaviGames.Manager
         [SerializeField]
         private EventChannel _onGameStateChanged;
 
+        [SerializeField]
+        private EventChannel _onReloadGame;
+
+        [SerializeField]
+        private PlayerHealth _playerHealth;
+
         [Header("Debug")]
         [SerializeField]
         [ReadOnly]
@@ -21,11 +28,13 @@ namespace XaviGames.Manager
         private void OnEnable()
         {
             _onGameStateChanged.Subscribe(HandleGameStateChanged);
+            _onReloadGame.Subscribe(_ => ReloadGame());
         }
 
         private void OnDisable()
         {
             _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+            _onReloadGame.Unsubscribe(_ => ReloadGame());
         }
 
         private void Awake()
@@ -36,7 +45,7 @@ namespace XaviGames.Manager
         private void Start()
         {
             LoadingCanvasController.Instance.EnableLoading();
-            _sceneBundle.LoadScenesAsync(OnSceneLoadStatus);
+            _sceneBundle.LoadScenesAsync(true, OnSceneLoadStatus);
         }
 
         private void OnSceneLoadStatus(float percent)
@@ -44,8 +53,15 @@ namespace XaviGames.Manager
             if (percent >= 1f)
             {
                 LoadingCanvasController.Instance.DisableLoading();
+                _playerHealth.ResetHealth();
                 _onGameStateChanged.RaiseEvent(GameState.Ready);
             }
+        }
+
+        private void ReloadGame()
+        {
+            LoadingCanvasController.Instance.EnableLoading();
+            _sceneBundle.LoadScenesAsync(false, OnSceneLoadStatus);
         }
 
         private void HandleGameStateChanged(object newState)

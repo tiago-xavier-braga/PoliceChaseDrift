@@ -20,9 +20,9 @@ namespace XaviEssencials.Runtime
         [field: SerializeField]
         public List<SceneReference> ScenesAdditives { get; private set; }
 
-        public async void LoadScenesAsync(Action<float> onTotalProgress = null)
+        public async void LoadScenesAsync(bool reloadSingleScene = true, Action<float> onTotalProgress = null)
         {
-            if (!SceneManager.GetSceneByName(SceneSingle.SceneName).isLoaded)
+            if (!SceneManager.GetSceneByName(SceneSingle.SceneName).isLoaded || reloadSingleScene)
             {
                 var mainSceneLoad = SceneManager.LoadSceneAsync(SceneSingle.SceneName, LoadSceneMode.Single);
 
@@ -36,11 +36,12 @@ namespace XaviEssencials.Runtime
 
             foreach (var sceneRef in ScenesAdditives)
             {
-                if (!SceneManager.GetSceneByName(sceneRef.SceneName).isLoaded)
+                if (SceneManager.GetSceneByName(sceneRef.SceneName).isLoaded)
                 {
-                    var loadOp = SceneManager.LoadSceneAsync(sceneRef.SceneName, LoadSceneMode.Additive);
-                    additiveOperations.Add((sceneRef.SceneName, loadOp));
+                    await SceneManager.UnloadSceneAsync(sceneRef.SceneName);
                 }
+                var loadOp = SceneManager.LoadSceneAsync(sceneRef.SceneName, LoadSceneMode.Additive);
+                additiveOperations.Add((sceneRef.SceneName, loadOp));
             }
 
             while (additiveOperations.Any(pair => !pair.op.isDone))
