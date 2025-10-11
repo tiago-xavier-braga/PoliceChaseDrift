@@ -151,6 +151,7 @@ MonoBehaviour:
   _sceneBundle: {fileID: 11400000, guid: 1607f63681040774eba1969430152068, type: 2}
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
   _onReloadGame: {fileID: 11400000, guid: 85d73678ba6292b4ca5ee847749194f6, type: 2}
+  _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
   _gameState: 0
 --- !u!4 &157851550
 Transform:

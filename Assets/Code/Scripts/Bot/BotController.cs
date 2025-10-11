@@ -16,9 +16,6 @@ namespace XaviGames.Bot
         [SerializeField]
         private EventChannel _onGameStateChanged;
 
-        [SerializeField]
-        private MeshRenderer _meshRenderer;
-
         [Header("Tuning")]
         [SerializeField]
         private float _minTurnAngleDegrees = 5f;
@@ -47,17 +44,6 @@ namespace XaviGames.Bot
         private void OnDisable()
         {
             _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
-        }
-
-        private void Start()
-        {
-            Material material = _meshRenderer.material;
-            material.SetFloat("_Dissolve", 0f);
-            LeanTween.value(gameObject, 0f, 1f, 0.5f)
-                .setOnUpdate((float val) =>
-                {
-                    material.SetFloat("_Dissolve", val);
-                });
         }
 
         private void FixedUpdate()

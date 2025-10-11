@@ -1406,7 +1406,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1414,7 +1414,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 100
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1697,8 +1697,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456994dff6180814bba757d6f79649e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Player.PlayerCollision
-  _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
-  _collisionDamage: 1
+  _onCollisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _minCollisionVelocity: 0.1
+  _collisionInterval: 1
+  _ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &7397050270592609565
 MonoBehaviour:
   m_ObjectHideFlags: 0

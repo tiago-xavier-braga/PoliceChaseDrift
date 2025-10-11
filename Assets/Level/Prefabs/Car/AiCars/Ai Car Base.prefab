@@ -228,7 +228,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 100
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   _carMovementController: {fileID: 2960198560476185350}
   _audioSource: {fileID: 6129792873469843253}
   _audioClip: {fileID: 8300000, guid: 1776c04dbbc15c04da31e308e13e6e6d, type: 3}
-  _volume: 0.119
+  _volume: 0
   _minMovingPitch: 0.8
   _maxMovingPitch: 1.2
 --- !u!114 &952250583702484495
@@ -422,7 +422,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carMovementController: {fileID: 2960198560476185350}
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
-  _meshRenderer: {fileID: 0}
   _minTurnAngleDegrees: 5
   _distanceThresholdMeters: 2
   _steerInputMagnitude: 1

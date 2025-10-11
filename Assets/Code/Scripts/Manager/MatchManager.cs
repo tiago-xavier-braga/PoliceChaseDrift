@@ -67,13 +67,14 @@ namespace XaviGames.Manager
             _gameOverCanvas.EnableCanvas();
             _playerHealth.ResetHealth();
             _onGameStateChanged.RaiseEvent(GameState.GameOver);
+            Debug.Log("Match Finished");
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
             var moveInput = context.ReadValue<Vector2>();
 
-            if (moveInput.y > 0)
+            if (moveInput.y > 0 && _gameState == GameState.Ready)
             {
                 StartMatch();
             }
