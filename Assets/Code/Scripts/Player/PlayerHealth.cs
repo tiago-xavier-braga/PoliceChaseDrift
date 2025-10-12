@@ -25,18 +25,21 @@ namespace XaviGames.Player
 
         public void TakeDamage(float damage)
         {
+            Debug.Log("Player took damage: " + damage);
             Health = Mathf.Max(0, Health - damage);
             OnHealthChanged?.Invoke(Health);
         }
 
         public void Heal(float amount)
         {
+            Debug.Log("Player healed: " + amount);
             Health += amount;
             OnHealthChanged?.Invoke(Health);
         }
 
         public void ResetHealth()
         {
+            Debug.Log("Player health reset to: " + _health);
             Health = _health;
             OnHealthChanged?.Invoke(Health);
         }

@@ -12,5 +12,6 @@ namespace XaviGames.Ui
         {
             _onReloadGame.RaiseEvent();
         }
+
     }
 }
