@@ -34,20 +34,20 @@ namespace XaviGames.Manager
         private void OnDisable()
         {
             _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
-            _playerHealth.OnHealthChanged += HandleHelthCHanged;
+            _playerHealth.OnHealthChanged -= HandleHelthCHanged;
         }
 
         private void Start()
         {
             LoadingCanvasController.Instance.DisableLoading();
+            StartMatch();
         }
 
         [Button("Start", true)]
         public void StartMatch()
         {
-            if (_gameState != GameState.Ready)
+            if (_gameState == GameState.InGame)
             {
-                Debug.LogWarning("Match cannot be started. Current state: " + _gameState);
                 return;
             }
 
@@ -87,11 +87,6 @@ namespace XaviGames.Manager
 
         private void HandleHelthCHanged(float newHealth)
         {
-            if (_gameState != GameState.InGame)
-            {
-                return;
-            }
-
             if (newHealth <= 0f)
             {
                 FinishMatch();

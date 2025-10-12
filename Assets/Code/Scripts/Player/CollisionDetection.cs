@@ -14,9 +14,6 @@ namespace XaviGames.Player
         private float _minCollisionVelocity = 0.1f;
 
         [SerializeField]
-        private float _collisionInterval = 1f;
-
-        [SerializeField]
         private LayerMask _ignoreLayer;
 
         private void OnCollisionEnter(Collision collision)
@@ -26,17 +23,11 @@ namespace XaviGames.Player
                 return;
             }
 
-            CollisionCalculate(collision);
-        }
-
-        private async void CollisionCalculate(Collision collision)
-        {
             if (collision.relativeVelocity.magnitude < _minCollisionVelocity)
             {
                 return;
             }
-            int milliseconds = (int)(_collisionInterval * 1000);
-            await Task.Delay(milliseconds);
+
             _onCollisionEnter?.Invoke();
         }
     }
