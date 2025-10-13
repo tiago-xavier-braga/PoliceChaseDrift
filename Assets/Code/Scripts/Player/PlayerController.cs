@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using XaviEssencials.Shared;
 using XaviGames.Car;
 using XaviGames.Events;
 using XaviGames.Manager;
@@ -80,6 +81,12 @@ namespace XaviGames.Player
         private void HandleGameStateChanged(object state)
         {
             _gameState = (GameState)state;
+        }
+
+        [Button("Debug Mode")]
+        private void DebugMode()
+        {
+            _gameState = GameState.InGame;
         }
     }
 }

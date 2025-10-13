@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ModelTransform>k__BackingField: {fileID: 4034410734353053159}
   <WheelCollider>k__BackingField: {fileID: 3461339825215860323}
-  <IsMotorized>k__BackingField: 1
+  <IsMotorized>k__BackingField: 0
   <IsSteerable>k__BackingField: 1
 --- !u!1 &1566065649921042635
 GameObject:
@@ -315,7 +315,6 @@ GameObject:
   - component: {fileID: 4789958028335604968}
   - component: {fileID: 2475634637631570790}
   - component: {fileID: 2960198560476185350}
-  - component: {fileID: 6244893587403181537}
   - component: {fileID: 952250583702484495}
   m_Layer: 6
   m_Name: Ai Car Base
@@ -390,24 +389,6 @@ MonoBehaviour:
   - {fileID: 7519570944608493022}
   _inputVector: {x: 0, y: 0}
   <KmPerHour>k__BackingField: 0
---- !u!114 &6244893587403181537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4024901452684827058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3471eafa75596e141baab0590364f919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _carMovementController: {fileID: 2960198560476185350}
-  _audioSource: {fileID: 6129792873469843253}
-  _audioClip: {fileID: 8300000, guid: 1776c04dbbc15c04da31e308e13e6e6d, type: 3}
-  _volume: 0
-  _minMovingPitch: 0.8
-  _maxMovingPitch: 1.2
 --- !u!114 &952250583702484495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ModelTransform>k__BackingField: {fileID: 5027027448383513615}
   <WheelCollider>k__BackingField: {fileID: 6047654688222010744}
-  <IsMotorized>k__BackingField: 1
+  <IsMotorized>k__BackingField: 0
   <IsSteerable>k__BackingField: 1
 --- !u!1 &7816976996192269082
 GameObject:

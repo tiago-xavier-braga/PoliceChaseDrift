@@ -2449,17 +2449,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 952250583702484495, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
-      propertyPath: _onGameStateChanged
-      value: 
-      objectReference: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
     - target: {fileID: 4024901452684827058, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
       propertyPath: m_Name
       value: Ai Car
-      objectReference: {fileID: 0}
-    - target: {fileID: 4024901452684827058, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4789958028335604968, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
       propertyPath: m_LocalPosition.x

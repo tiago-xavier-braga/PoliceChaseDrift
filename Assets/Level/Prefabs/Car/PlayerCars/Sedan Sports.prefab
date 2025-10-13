@@ -824,7 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ModelTransform>k__BackingField: {fileID: 3978888449833171972}
   <WheelCollider>k__BackingField: {fileID: 8011858983589246997}
-  <IsMotorized>k__BackingField: 1
+  <IsMotorized>k__BackingField: 0
   <IsSteerable>k__BackingField: 1
 --- !u!1 &2601923093143104155
 GameObject:
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ModelTransform>k__BackingField: {fileID: 4739092113528989318}
   <WheelCollider>k__BackingField: {fileID: 3828468553991655231}
-  <IsMotorized>k__BackingField: 1
+  <IsMotorized>k__BackingField: 0
   <IsSteerable>k__BackingField: 1
 --- !u!1 &7091306424307859213
 GameObject:
@@ -1699,12 +1699,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Player.PlayerCollision
   _onCollisionEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
+        m_TargetAssemblyTypeName: XaviGames.Player.PlayerHealth, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _minCollisionVelocity: 0.1
-  _collisionInterval: 1
   _ignoreLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
 --- !u!114 &7397050270592609565
 MonoBehaviour:
   m_ObjectHideFlags: 0

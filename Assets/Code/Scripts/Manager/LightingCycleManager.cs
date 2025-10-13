@@ -18,7 +18,6 @@ namespace XaviGames.Manager
         private float _cycleTimeInSeconds = 60f;
 
         private GameState _gameState = GameState.None;
-        private bool _isNight = false;
         private bool _lastIsNightValue = false;
 
         private void OnEnable()
