@@ -40,7 +40,6 @@ namespace XaviGames.Manager
         private void Start()
         {
             LoadingCanvasController.Instance.DisableLoading();
-            StartMatch();
         }
 
         [Button("Start", true)]
