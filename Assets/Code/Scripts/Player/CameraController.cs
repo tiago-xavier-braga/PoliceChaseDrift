@@ -6,10 +6,17 @@ namespace XaviGames.Player
     public class CameraController : MonoBehaviour
     {
         [SerializeField]
-        private Transform _target;
+        private PlayerController _playerController;
 
         [SerializeField]
         private Vector3 _offset = new Vector3(-10f, 10f, -10f);
+        
+        private Transform _target;
+
+        private void Start()
+        {
+            _target = _playerController.CarTransform;
+        }
 
         private void LateUpdate()
         {

@@ -36,9 +36,15 @@ namespace XaviGames.Bot
         [ReadOnly]
         private GameState _gameState = GameState.None;
 
+        [SerializeField]
+        [ReadOnly]
+        public PlayerController PlayerController;
+
         private void OnEnable()
         {
             _onGameStateChanged.Subscribe(HandleGameStateChanged);
+            _gameState = _onGameStateChanged.Parameter != null 
+                ? (GameState)_onGameStateChanged.Parameter : GameState.None;
         }
 
         private void OnDisable()
@@ -55,7 +61,7 @@ namespace XaviGames.Bot
             }
 
             Transform carTransform = _carMovementController.transform;
-            Transform playerCarTransform = PlayerController.Instance.CarTransform;
+            Transform playerCarTransform = PlayerController.CarTransform;
 
             Vector3 directionToPlayer = playerCarTransform.position - carTransform.position;
             float angleToPlayer = Vector3.SignedAngle(carTransform.forward, directionToPlayer, Vector3.up);

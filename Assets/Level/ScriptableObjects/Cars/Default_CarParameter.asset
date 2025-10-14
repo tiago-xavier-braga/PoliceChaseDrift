@@ -16,7 +16,7 @@ MonoBehaviour:
   <CarName>k__BackingField: Default
   <CarDescription>k__BackingField: A default car
   <CarImage>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  <CarGameObject>k__BackingField: {fileID: 0}
+  <CarPrefab>k__BackingField: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
   <TopSpeed>k__BackingField: 120
   <Acceleration>k__BackingField: 800
   <BreakForce>k__BackingField: 2000
@@ -31,5 +31,4 @@ MonoBehaviour:
   <DriftAngularDamping>k__BackingField: 0.3
   <UiTopSpeed>k__BackingField: 1
   <UiAcceleration>k__BackingField: 2
-  <UiBreakForce>k__BackingField: 3
-  <UiSteeringRange>k__BackingField: 4
+  <UiHealth>k__BackingField: 0

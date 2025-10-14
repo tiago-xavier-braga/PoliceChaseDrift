@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using XaviEssencials.Runtime;
 using XaviEssencials.Shared;
 using XaviGames.Car;
 using XaviGames.Events;
@@ -10,45 +11,46 @@ namespace XaviGames.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [field: Header("Car References")]
-        [field: SerializeField]
-        public Transform CarTransform { get; private set; }
-
-        [field: SerializeField]
-        public CarMovementController CarMovementController { get; private set; }
-
         [SerializeField]
         private EventChannel _onGameStateChanged;
 
-        private GameState _gameState = GameState.None;
+        [SerializeField]
+        private PlayerData _playerData;
 
-        public static PlayerController Instance { get; private set; }
+        [SerializeField]
+        private CarDatabase _carDatabase;
+
+        [SerializeField]
+        private Transform _startPosition;
+
+        [SerializeField]
+        [ReadOnly]
+        private CarParameter _currentCarParameter;
+
+        public Transform CarTransform { get; private set; } = null;
+        public CarMovementController CarMovementController { get; private set; } = null;
+
+        private GameState _gameState = GameState.None;
 
         private void OnEnable()
         {
             _onGameStateChanged.Subscribe(HandleGameStateChanged);
+            SpawnCar();
         }
-
 
         private void OnDisable()
         {
             _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
         }
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-
         public void OnMoveInput(InputAction.CallbackContext context)
         {
+            if (CarMovementController == null)
+            {
+                return;
+            }
+
+
             if (_gameState != GameState.InGame)
             {
                 CarMovementController.OnMoveInput(Vector2.zero);
@@ -59,23 +61,13 @@ namespace XaviGames.Player
             CarMovementController.OnMoveInput(inputVector);
         }
 
-        public void OnHandbrake(InputAction.CallbackContext context)
+        public void SpawnCar()
         {
-            if (_gameState != GameState.InGame)
-            {
-                return;
-            }
-
-            switch (context.phase)
-            {
-                case InputActionPhase.Performed:
-                    CarMovementController.OnHandbrake(true);
-                    break;
-
-                case InputActionPhase.Canceled:
-                    CarMovementController.OnHandbrake(false);
-                    break;
-            }
+            _currentCarParameter = _carDatabase.GetCarParameterById(_playerData.CurrentCar);
+            GameObject carPrefab = _currentCarParameter.CarPrefab;
+            GameObject carObject = Instantiate(carPrefab, _startPosition.position, _startPosition.rotation);
+            CarMovementController = carObject.GetComponent<CarMovementController>();
+            CarTransform = carObject.transform;
         }
 
         private void HandleGameStateChanged(object state)

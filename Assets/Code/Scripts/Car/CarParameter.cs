@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using XaviEssencials.Runtime;
+using XaviEssencials.Shared;
 
 namespace XaviGames.Car
 {
@@ -8,7 +9,6 @@ namespace XaviGames.Car
     public class CarParameter : ScriptableObject
     {
         [field: SerializeField]
-        [field: ReadOnly]
         public string Id { get; private set; } = Guid.NewGuid().ToString("N").Substring(0, 8);
         
         [field: Header("Car Parameter")]
@@ -22,7 +22,7 @@ namespace XaviGames.Car
         public Sprite CarImage { get; private set; }
 
         [field: SerializeField]
-        public GameObject CarGameObject { get; private set; }
+        public GameObject CarPrefab { get; private set; }
         
         [field: Header("Physical Parameters")]
 
@@ -71,10 +71,7 @@ namespace XaviGames.Car
         public int UiAcceleration { get; private set; }
 
         [field: SerializeField]
-        public int UiBreakForce { get; private set; }
-
-        [field: SerializeField]
-        public int UiSteeringRange { get; private set; }
+        public int UiHealth { get; private set; }
 
         public WheelFrictionCurve DriftFrictionCurve
         {

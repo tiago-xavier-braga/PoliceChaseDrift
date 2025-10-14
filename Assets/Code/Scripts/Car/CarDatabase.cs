@@ -11,7 +11,7 @@ namespace XaviGames.Car
         [field: SerializeField]
         public List<CarParameter> CarsParameters { get; private set; } = new List<CarParameter>();
 
-        public CarParameter GetCarParameter(string id)
+        public CarParameter GetCarParameterById(string id)
         {
             var carParameter = CarsParameters.FirstOrDefault(parameter => parameter.Id == id);
             return carParameter;
