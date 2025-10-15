@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 7359151406975330280}
   - component: {fileID: 1962833427019949320}
   - component: {fileID: 6026290339713284441}
+  - component: {fileID: 3604021576999548429}
   m_Layer: 0
   m_Name: Light Curved
   m_TagString: Untagged
@@ -510,6 +511,19 @@ MonoBehaviour:
     m_Bits: 64
   _disableDelaySeconds: 10
   _easeType: 25
+--- !u!114 &3604021576999548429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557574880353106220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74a830c96711504bbf4a816ddb9e294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 209064db425b1b949a8c5cfce37a29cb, type: 3}
 --- !u!1 &5990902470039779399
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3110149201371191297}
   - component: {fileID: 3461339825215860323}
   - component: {fileID: 607761648995406627}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: FL Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ WheelCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8320
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4034410734353053159}
   - component: {fileID: 4616625481663176403}
   - component: {fileID: 4068841226297031341}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Wheel Front Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7988542774612596158}
   - component: {fileID: 6129792873469843253}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 2475634637631570790}
   - component: {fileID: 2960198560476185350}
   - component: {fileID: 952250583702484495}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Ai Car Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6ab33fde421d44a8a4b127a362d9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carParameter: {fileID: 11400000, guid: c706c841683803e4397e9b14ea69b6b9, type: 2}
+  _carParameter: {fileID: 11400000, guid: 62b4ab23921a9f7479dd7c4f5b95519f, type: 2}
   _rigidbody: {fileID: 2475634637631570790}
   _wheelControllers:
   - {fileID: 607761648995406627}
@@ -409,6 +409,7 @@ MonoBehaviour:
   _forwardInput: 1
   _reverseInput: -1
   _gameState: 0
+  PlayerController: {fileID: 0}
 --- !u!1 &4239672800358122494
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +421,7 @@ GameObject:
   - component: {fileID: 5208200298219888525}
   - component: {fileID: 4511313212969908201}
   - component: {fileID: 7519570944608493022}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: RL Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +479,7 @@ WheelCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8320
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
@@ -510,7 +511,7 @@ GameObject:
   - component: {fileID: 1451027238583693053}
   - component: {fileID: 2181078953751161259}
   - component: {fileID: 2695420519034243448}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +620,7 @@ GameObject:
   - component: {fileID: 5027027448383513615}
   - component: {fileID: 1555263939301842815}
   - component: {fileID: 6026904667202400891}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Wheel Front Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +706,7 @@ GameObject:
   - component: {fileID: 5329057221775029282}
   - component: {fileID: 3505022461796237679}
   - component: {fileID: 2365132392015512381}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Wheel Back Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2517419102667440074}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +824,7 @@ GameObject:
   - component: {fileID: 7121875591349807062}
   - component: {fileID: 1536245130691866699}
   - component: {fileID: 6608966050268749740}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: RR Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +882,7 @@ WheelCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8320
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
@@ -912,7 +913,7 @@ GameObject:
   - component: {fileID: 8321224657534968995}
   - component: {fileID: 4665345154806950397}
   - component: {fileID: 7415373731551637916}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: spoiler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +999,7 @@ GameObject:
   - component: {fileID: 7690884350079794745}
   - component: {fileID: 6047654688222010744}
   - component: {fileID: 1237201360115967039}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: FR Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1057,7 @@ WheelCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8320
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
@@ -1085,7 +1086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5774615456761314464}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1123,7 @@ GameObject:
   - component: {fileID: 930816438004253424}
   - component: {fileID: 4797678788795342284}
   - component: {fileID: 3154491560747358166}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Wheel Back Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

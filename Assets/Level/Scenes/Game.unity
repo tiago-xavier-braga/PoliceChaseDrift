@@ -957,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250659877510177132, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 48
+      value: 21.938782
       objectReference: {fileID: 0}
     - target: {fileID: 2250659877510177132, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1051,9 +1051,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 4130886973774571752, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4608525857883042236, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_Name
       value: Ads Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608525857883042236, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6495305479551275842, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_PreserveAspect
@@ -1073,11 +1081,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7518347559709118542, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 152
+      value: 98.93878
       objectReference: {fileID: 0}
     - target: {fileID: 7518347559709118542, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966618080042711522, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1329,6 +1341,119 @@ Transform:
   m_Children: []
   m_Father: {fileID: 273830785}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1362075363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362075364}
+  - component: {fileID: 1362075365}
+  - component: {fileID: 1362075367}
+  - component: {fileID: 1362075366}
+  m_Layer: 0
+  m_Name: Water Box Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1362075364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362075363}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 30, y: 1, z: 30}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1362075365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362075363}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 1, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1362075366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362075363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456994dff6180814bba757d6f79649e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onCollisionEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1437356825}
+        m_TargetAssemblyTypeName: XaviGames.Manager.MatchManager, Assembly-CSharp
+        m_MethodName: FinishMatch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _minCollisionVelocity: 0.1
+  _ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 32311
+--- !u!54 &1362075367
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362075363}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1383342894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,7 +2574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Bot.BotSpawnerController
   _onNightChangedEventChannel: {fileID: 11400000, guid: e1172bd9ed22d1341b09d08c24d992e7, type: 2}
   _onGameStateChangedEventChannel: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
-  _numberOfBotsToSpawn: 15
+  _numberOfBotsToSpawn: 30
   _playerController: {fileID: 72601643}
   _botPrefabs:
   - {fileID: 4024901452684827058, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
@@ -2638,6 +2763,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1469570999}
     m_Modifications:
+    - target: {fileID: 5873090136533164598, guid: 10883676eee89574d9f16ca79ec6b55a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873090136533164598, guid: 10883676eee89574d9f16ca79ec6b55a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6739526934521170379, guid: 10883676eee89574d9f16ca79ec6b55a, type: 3}
       propertyPath: m_Color.b
       value: 0.39607844
@@ -2797,7 +2930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250659877510177132, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 48
+      value: 21.938782
       objectReference: {fileID: 0}
     - target: {fileID: 2250659877510177132, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2891,6 +3024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Garage Button
       objectReference: {fileID: 0}
+    - target: {fileID: 4608525857883042236, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6495305479551275842, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2913,11 +3050,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7518347559709118542, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 152
+      value: 98.93878
       objectReference: {fileID: 0}
     - target: {fileID: 7518347559709118542, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966618080042711522, guid: 8a8b8bc776620dc4c865bc1480a07225, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2931,6 +3072,7 @@ SceneRoots:
   - {fileID: 72601645}
   - {fileID: 2039348513}
   - {fileID: 102374554}
+  - {fileID: 1362075364}
   - {fileID: 2098052575}
   - {fileID: 149359126}
   - {fileID: 1767995589}
