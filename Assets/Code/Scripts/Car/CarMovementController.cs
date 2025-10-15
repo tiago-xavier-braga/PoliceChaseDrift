@@ -60,6 +60,16 @@ namespace XaviGames.Car
             }
         }
 
+        public void Block()
+        {
+            _rigidbody.isKinematic = true;
+        }
+
+        public void Unblock()
+        {
+            _rigidbody.isKinematic = false;
+        }
+
         private void ApplyCenterMass()
         {
             Vector3 centerOfMass = _rigidbody.centerOfMass;

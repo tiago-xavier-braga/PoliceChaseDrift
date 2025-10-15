@@ -50,13 +50,6 @@ namespace XaviGames.Player
                 return;
             }
 
-
-            if (_gameState != GameState.InGame)
-            {
-                CarMovementController.OnMoveInput(Vector2.zero);
-                return;
-            }
-
             Vector2 inputVector = context.ReadValue<Vector2>();
             CarMovementController.OnMoveInput(inputVector);
         }
@@ -73,6 +66,11 @@ namespace XaviGames.Player
         private void HandleGameStateChanged(object state)
         {
             _gameState = (GameState)state;
+        
+            if (_gameState == GameState.GameOver)
+            {
+                CarMovementController.Block();
+            }
         }
 
         [Button("Debug Mode")]
