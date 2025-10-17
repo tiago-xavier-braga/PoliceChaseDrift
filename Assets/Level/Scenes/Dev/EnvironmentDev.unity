@@ -3309,9 +3309,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b20eca059b35847977713b4382c775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CarTransform>k__BackingField: {fileID: 2001235851}
-  <CarMovementController>k__BackingField: {fileID: 2001235850}
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+  _playerData: {fileID: 11400000, guid: cced31e5f9e13974ab1665db43db6484, type: 2}
+  _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
+  _startPosition: {fileID: 535199660}
+  _currentCarParameter: {fileID: 0}
 --- !u!4 &535199660
 Transform:
   m_ObjectHideFlags: 0
@@ -3326,7 +3328,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1796224901}
-  - {fileID: 2001235851}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &542976395 stripped
@@ -46477,7 +46478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b49633b3ce3f9442943e5becae6cafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 2001235851}
+  _playerController: {fileID: 535199659}
   _offset: {x: -30, y: 30, z: -30}
 --- !u!114 &1959198782
 MonoBehaviour:
@@ -46859,79 +46860,6 @@ Transform:
   - {fileID: 926527373}
   m_Father: {fileID: 161283019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2001235849
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 535199660}
-    m_Modifications:
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20.376
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 16.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-      propertyPath: m_Name
-      value: Sedan Sports
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
---- !u!114 &2001235850 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8955996242041112816, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-  m_PrefabInstance: {fileID: 2001235849}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6ab33fde421d44a8a4b127a362d9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2001235851 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 824399129497248119, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-  m_PrefabInstance: {fileID: 2001235849}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2008771707
 GameObject:
   m_ObjectHideFlags: 0
