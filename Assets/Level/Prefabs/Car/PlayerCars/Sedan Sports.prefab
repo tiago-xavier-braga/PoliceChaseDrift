@@ -1427,7 +1427,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -6311,6 +6311,7 @@ GameObject:
   - component: {fileID: 3036427734114426988}
   - component: {fileID: 7397050270592609565}
   - component: {fileID: 6374508152532304050}
+  - component: {fileID: 4830830317760120884}
   m_Layer: 6
   m_Name: Sedan Sports
   m_TagString: Untagged
@@ -6475,3 +6476,18 @@ MonoBehaviour:
   _minCollisionVelocity: 1
   _volume: 0.1
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+--- !u!114 &4830830317760120884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138602551222810146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0f7273096f32047a2dc63a4ec85bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 5826455628716018849}
+  _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
+  _healthThreshold: 10
