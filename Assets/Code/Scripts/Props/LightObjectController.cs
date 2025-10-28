@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using XaviGames.Events;
+using XaviGames.Shared;
 
 namespace XaviGames.Props
 {

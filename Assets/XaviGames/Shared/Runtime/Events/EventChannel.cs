@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace XaviGames.Events
+namespace XaviGames.Shared
 {
     [CreateAssetMenu(fileName = "EventChannel", menuName = "Xavi Games/EventChannel")]
     public class EventChannel : ScriptableObject

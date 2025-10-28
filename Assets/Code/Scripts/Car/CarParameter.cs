@@ -1,7 +1,5 @@
 using UnityEngine;
 using System;
-using XaviEssencials.Runtime;
-using XaviEssencials.Shared;
 
 namespace XaviGames.Car
 {

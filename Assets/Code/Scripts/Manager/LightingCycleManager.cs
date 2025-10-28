@@ -1,5 +1,5 @@
 using UnityEngine;
-using XaviGames.Events;
+using XaviGames.Shared;
 
 namespace XaviGames.Manager
 {

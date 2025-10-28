@@ -1,7 +1,6 @@
 using UnityEngine;
-using XaviEssencials.Runtime;
 
-namespace XaviGames.VariablesObjects
+namespace XaviGames.Shared
 {
     [CreateAssetMenu(fileName = "_FloatObject", menuName = "Xavi Games/Variables Objects/Float Object")]
     public class FloatObject : ScriptableObject
@@ -12,7 +11,6 @@ namespace XaviGames.VariablesObjects
         [field: SerializeField]
         [field: ReadOnly]
         public float Value { get; private set; }
-
 
         public void OnEnable()
         {

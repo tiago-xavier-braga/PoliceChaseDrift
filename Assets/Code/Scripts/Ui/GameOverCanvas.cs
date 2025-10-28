@@ -1,5 +1,6 @@
 using UnityEngine;
-using XaviGames.Events;
+using XaviGames.Shared;
+using XaviGames.UICore;
 
 namespace XaviGames.Ui
 {

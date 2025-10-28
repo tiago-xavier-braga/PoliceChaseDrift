@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace XaviGames.Ui
+namespace XaviGames.UICore
 {
     public class FpsDisplay : MonoBehaviour
     {
@@ -12,14 +12,13 @@ namespace XaviGames.Ui
         private float elapsed;
         private int frames;
 
-
         private void Start()
         {
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
             gameObject.SetActive(true);
-            return;
-#endif
+#else
             gameObject.SetActive(false);
+#endif
         }
 
         private void Update()

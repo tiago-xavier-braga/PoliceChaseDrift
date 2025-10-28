@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using XaviEssencials.Shared;
-using XaviGames.Events;
 using XaviGames.Player;
+using XaviGames.Shared;
 using XaviGames.Ui;
+using XaviGames.UICore;
 
 namespace XaviGames.Manager
 {

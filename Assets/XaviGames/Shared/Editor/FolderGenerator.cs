@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 
-namespace XaviEssencials.Editor
+namespace XaviGames.Shared
 {
     public class FolderGenerator : EditorWindow
     {

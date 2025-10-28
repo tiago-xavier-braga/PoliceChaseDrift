@@ -1,7 +1,6 @@
 using UnityEngine;
-using XaviGames.Events;
 using XaviGames.Manager;
-using XaviGames.VariablesObjects;
+using XaviGames.Shared;
 
 namespace XaviGames.Sounds
 {

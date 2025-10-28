@@ -1,16 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
-using XaviEssencials.Runtime;
-using XaviEssencials.Shared;
-using XaviGames.Ui;
+using XaviGames.Shared;
 
-namespace XaviGames.Ui
+namespace XaviGames.UICore
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class CanvasGroupController : MonoBehaviour
     {
         [SerializeField]
-        private CanvasTransitionSO _canvasTransitionSO;
+        private UICoreSettings _canvasTransitionSO;
 
         [SerializeField]
         private CanvasGroup _canvasGroup;

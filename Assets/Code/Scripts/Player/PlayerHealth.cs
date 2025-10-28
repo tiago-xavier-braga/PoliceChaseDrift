@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using XaviEssencials.Runtime;
-using XaviGames.Events;
-using XaviGames.Manager;
+using XaviGames.Shared;
 
 namespace XaviGames.Player
 {

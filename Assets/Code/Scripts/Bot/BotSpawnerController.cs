@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using XaviEssencials.Runtime;
-using XaviGames.Events;
+using XaviGames.Shared;
 using XaviGames.Manager;
 using XaviGames.Player;
 

@@ -1,9 +1,8 @@
 using UnityEngine;
-using XaviEssencials.Runtime;
 using XaviGames.Car;
 using XaviGames.Player;
 using XaviGames.Manager;
-using XaviGames.Events;
+using XaviGames.Shared;
 
 namespace XaviGames.Bot
 {
