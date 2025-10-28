@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 38a4d891972234544874f62295cf7374
+guid: 7006e06f6e63cb24585de0dd48c296e3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,51 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TXT_Pack_0
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 1428
+        width: 409
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 25, y: 45, z: 25, w: 45}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c82b1587e88aa45bab55020597690e
+      internalID: 914982604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TXT_Pack_1
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 823
+        width: 414
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a4861c0452b964c9c5b11750e8462c
+      internalID: -567873391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -135,7 +179,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TXT_Pack_0: 914982604
+      TXT_Pack_1: -567873391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
