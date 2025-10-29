@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ec56722613ff94bbc5bc37b3eff023, type: 3}
-  m_Name: VolumeMaster
+  m_Script: {fileID: 11500000, guid: 9dbc1911737bc104995ce431ff26bea4, type: 3}
+  m_Name: AudioData
   m_EditorClassIdentifier: 
-  _value: 1
-  <Value>k__BackingField: 0
+  <Volume>k__BackingField: 1
