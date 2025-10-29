@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using XaviGames.Player;
 using XaviGames.Shared;
 using XaviGames.Ui;
@@ -20,6 +19,9 @@ namespace XaviGames.Manager
 
         [SerializeField]
         private CanvasGroupController _gameOverCanvas;
+
+        [SerializeField]
+        private CameraController _cameraController;
 
         private GameState _gameState = GameState.None;
 
@@ -49,6 +51,7 @@ namespace XaviGames.Manager
                 return;
             }
 
+            _cameraController.StartInitialAnimation();
             _initialMenuCanvas.DisableCanvas();
             _onGameStateChanged.RaiseEvent(GameState.InGame);
         }
@@ -66,16 +69,6 @@ namespace XaviGames.Manager
             _playerHealth.ResetHealth();
             _onGameStateChanged.RaiseEvent(GameState.GameOver);
             Debug.Log("Match Finished");
-        }
-
-        public void OnMoveInput(InputAction.CallbackContext context)
-        {
-            var moveInput = context.ReadValue<Vector2>();
-
-            if (moveInput.y > 0 && _gameState == GameState.Ready)
-            {
-                StartMatch();
-            }
         }
 
         private void HandleGameStateChanged(object newState)

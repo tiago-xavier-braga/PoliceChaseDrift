@@ -14,5 +14,12 @@ namespace XaviGames.UICore
 
         [field: SerializeField]
         public float AnimationDuration { get; private set; } = 0.5f;
+
+        [field: Header("Button Extensions")]
+        [field: SerializeField]
+        public AudioClip ButtonReleaseSound;
+        
+        [field: SerializeField]
+        public AudioClip ButtonClickSound;
     }
 }

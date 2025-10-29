@@ -14,6 +14,9 @@ namespace XaviGames.UICore
         private CanvasGroup _canvasGroup;
 
         [SerializeField]
+        private bool _scaleOnTransition = true;
+
+        [SerializeField]
         private bool _isEnabled = false;
 
         [Button("Enable", true)]
@@ -27,8 +30,13 @@ namespace XaviGames.UICore
             LeanTween.cancel(gameObject);
             LeanTween.alphaCanvas(_canvasGroup, 1f, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
-            LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.EnableCanvasScale, _canvasTransitionSO.AnimationDuration)
-                .setEase(LeanTweenType.easeInOutQuad);
+
+            if (_scaleOnTransition)
+            {
+                LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.EnableCanvasScale, _canvasTransitionSO.AnimationDuration)
+                    .setEase(LeanTweenType.easeInOutQuad);
+            }
+
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
             _isEnabled = true;
@@ -43,10 +51,16 @@ namespace XaviGames.UICore
             }
 
             LeanTween.cancel(gameObject);
+
             LeanTween.alphaCanvas(_canvasGroup, 0f, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
-            LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.DisableCanvasScale, _canvasTransitionSO.AnimationDuration)
+
+            if (_scaleOnTransition)
+            {
+                LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.DisableCanvasScale, _canvasTransitionSO.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
+            }
+
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
             _isEnabled = false;
