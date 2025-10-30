@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AudioData
   m_EditorClassIdentifier: 
   <Volume>k__BackingField: 1
+  <SfxVolume>k__BackingField: 1
