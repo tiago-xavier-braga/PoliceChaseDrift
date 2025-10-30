@@ -8,7 +8,7 @@ namespace XaviGames.UICore
     public class CanvasGroupController : MonoBehaviour
     {
         [SerializeField]
-        private UICoreSettings _canvasTransitionSO;
+        private UICoreSettings _uiCoreSettings;
 
         [SerializeField]
         private CanvasGroup _canvasGroup;
@@ -28,12 +28,12 @@ namespace XaviGames.UICore
             }
 
             LeanTween.cancel(gameObject);
-            LeanTween.alphaCanvas(_canvasGroup, 1f, _canvasTransitionSO.AnimationDuration)
+            LeanTween.alphaCanvas(_canvasGroup, 1f, _uiCoreSettings.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
 
             if (_scaleOnTransition)
             {
-                LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.EnableCanvasScale, _canvasTransitionSO.AnimationDuration)
+                LeanTween.scale(gameObject, Vector3.one * _uiCoreSettings.EnableCanvasScale, _uiCoreSettings.AnimationDuration)
                     .setEase(LeanTweenType.easeInOutQuad);
             }
 
@@ -52,12 +52,12 @@ namespace XaviGames.UICore
 
             LeanTween.cancel(gameObject);
 
-            LeanTween.alphaCanvas(_canvasGroup, 0f, _canvasTransitionSO.AnimationDuration)
+            LeanTween.alphaCanvas(_canvasGroup, 0f, _uiCoreSettings.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
 
             if (_scaleOnTransition)
             {
-                LeanTween.scale(gameObject, Vector3.one * _canvasTransitionSO.DisableCanvasScale, _canvasTransitionSO.AnimationDuration)
+                LeanTween.scale(gameObject, Vector3.one * _uiCoreSettings.DisableCanvasScale, _uiCoreSettings.AnimationDuration)
                 .setEase(LeanTweenType.easeInOutQuad);
             }
 

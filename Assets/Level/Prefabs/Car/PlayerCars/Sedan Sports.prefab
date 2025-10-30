@@ -6403,10 +6403,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carMovementController: {fileID: 8955996242041112816}
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
-  _volumeMaster: {fileID: 11400000, guid: 148ab2a720843474180aa29dbb314fdb, type: 2}
+  _audioData: {fileID: 11400000, guid: 892731fc9a6bc8349aa051d65ea81f36, type: 2}
   _audioSource: {fileID: 6974300966149079557}
+  _minVolume: 0
+  _maxVolume: 0.021
   _audioClip: {fileID: 8300000, guid: 1776c04dbbc15c04da31e308e13e6e6d, type: 3}
-  _volume: 0.05
   _minMovingPitch: 0.8
   _maxMovingPitch: 1.2
 --- !u!114 &3036427734114426988
@@ -6472,9 +6473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 2649485054946226316}
-  _volumeMaster: {fileID: 11400000, guid: 148ab2a720843474180aa29dbb314fdb, type: 2}
-  _minCollisionVelocity: 1
-  _volume: 0.1
+  _audioData: {fileID: 11400000, guid: 892731fc9a6bc8349aa051d65ea81f36, type: 2}
+  _minVolume: 0
+  _maxVolume: 0.5
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
 --- !u!114 &4830830317760120884
 MonoBehaviour:

@@ -43,5 +43,10 @@ namespace XaviGames.Shared
             Parameter = parameter;
             _event?.Invoke(parameter);
         }
+
+        public void RaiseEvent()
+        {
+            RaiseEvent(null);
+        }
     }
 }

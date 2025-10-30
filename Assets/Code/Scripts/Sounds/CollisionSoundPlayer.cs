@@ -1,4 +1,5 @@
 using UnityEngine;
+using XaviGames.Audio;
 using XaviGames.Manager;
 using XaviGames.Shared;
 
@@ -10,13 +11,13 @@ namespace XaviGames.Sounds
         private AudioSource _audioSource;
 
         [SerializeField]
-        private FloatObject _volumeMaster;
+        private AudioData _audioData;
 
         [SerializeField]
-        private float _minCollisionVelocity = 1;
+        private float _minVolume;
 
         [SerializeField]
-        private float _volume;
+        private float _maxVolume;
 
         [SerializeField]
         private EventChannel _onGameStateChanged;
@@ -48,12 +49,8 @@ namespace XaviGames.Sounds
                 return;
             }
 
-            float magnitude = collision.relativeVelocity.magnitude;
-
-            _audioClip = soundGroup.AudioClip;
-            float volume = (Mathf.Clamp01(magnitude / _minCollisionVelocity) * _volume) * _volumeMaster.Value ;
+            float volume = Mathf.Lerp(_minVolume, _maxVolume, _audioData.SfxVolume);
             _audioSource.PlayOneShot(_audioClip, volume);
-
         }
 
         private void OnGameStateChanged(object gameState)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using XaviGames.Audio;
 using XaviGames.Manager;
 using XaviGames.Shared;
 
@@ -14,19 +15,21 @@ namespace XaviGames.Car
         private EventChannel _onGameStateChanged;
 
         [SerializeField]
-        private FloatObject _volumeMaster;
+        private AudioData _audioData;
 
         [Header("Audio Sources References")]
         [SerializeField]
         private AudioSource _audioSource;
 
+        [SerializeField]
+        private float _minVolume;
+
+        [SerializeField]
+        private float _maxVolume;
+
         [Header("Clips References")]
         [SerializeField]
         private AudioClip _audioClip;
-
-        [SerializeField]
-        [Range(0, 1f)]
-        private float _volume = 0.5f;
 
         [SerializeField]
         private float _minMovingPitch = 0.8f;
@@ -59,8 +62,8 @@ namespace XaviGames.Car
             {
                 _audioSource.clip = _audioClip;
 
-                float volume = _volume * _volumeMaster.Value;
-                _audioSource.volume = _volume;
+                float volume = Mathf.Lerp(_minVolume, _maxVolume, _audioData.SfxVolume);
+                _audioSource.volume = volume;
                 _audioSource.Play();
             }
 

@@ -8,5 +8,9 @@ namespace XaviGames.Audio
         [field: SerializeField]
         [field: Range(0f, 1f)]
         public float Volume { get; private set; } = 1f;
+
+        [field: SerializeField]
+        [field: Range(0f, 1f)]
+        public float SfxVolume { get; private set; } = 1f;
     }
 }

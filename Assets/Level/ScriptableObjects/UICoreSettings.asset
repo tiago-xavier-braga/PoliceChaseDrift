@@ -15,5 +15,5 @@ MonoBehaviour:
   <EnableCanvasScale>k__BackingField: 1
   <DisableCanvasScale>k__BackingField: 0.8
   <AnimationDuration>k__BackingField: 0.5
-  ButtonHoverSound: {fileID: 8300000, guid: f26feaa71daca2a4a8430012bdfc5b5f, type: 3}
+  ButtonReleaseSound: {fileID: 8300000, guid: f26feaa71daca2a4a8430012bdfc5b5f, type: 3}
   ButtonClickSound: {fileID: 8300000, guid: e2543206340aea44586c36408b84e1cf, type: 3}

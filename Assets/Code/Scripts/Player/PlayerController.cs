@@ -24,10 +24,12 @@ namespace XaviGames.Player
         [ReadOnly]
         private CarParameter _currentCarParameter;
 
+        [SerializeField]
+        [ReadOnly]
+        private GameState _gameState = GameState.None;
+        
         public Transform CarTransform { get; private set; } = null;
         public CarMovementController CarMovementController { get; private set; } = null;
-
-        private GameState _gameState = GameState.None;
 
         private void OnEnable()
         {
@@ -42,6 +44,11 @@ namespace XaviGames.Player
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
+            if (_gameState != GameState.InGame)
+            {
+                return;
+            }
+
             if (CarMovementController == null)
             {
                 return;
