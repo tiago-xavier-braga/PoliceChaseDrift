@@ -72,7 +72,7 @@ namespace XaviGames.Car
         private void ApplyCenterMass()
         {
             Vector3 centerOfMass = _rigidbody.centerOfMass;
-            centerOfMass.y += _carParameter.CentreOfGravityOffset;
+            centerOfMass.y += _carParameter.CenterOfGravityOffset;
             _rigidbody.centerOfMass = centerOfMass;
         }
 

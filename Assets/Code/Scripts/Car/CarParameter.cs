@@ -8,16 +8,6 @@ namespace XaviGames.Car
     {
         [field: SerializeField]
         public string Id { get; private set; } = Guid.NewGuid().ToString("N").Substring(0, 8);
-        
-        [field: Header("Car Parameter")]
-        [field: SerializeField]
-        public string CarName { get; private set; }
-        
-        [field: SerializeField]
-        public string CarDescription { get; private set; }
-
-        [field: SerializeField]
-        public Sprite CarImage { get; private set; }
 
         [field: SerializeField]
         public GameObject CarPrefab { get; private set; }
@@ -40,7 +30,7 @@ namespace XaviGames.Car
         public float SteeringRangeAtMaxSpeed { get; private set; }
 
         [field: SerializeField]
-        public float CentreOfGravityOffset { get; private set; }
+        public float CenterOfGravityOffset { get; private set; }
 
         [Header("Drift Friction Curve")]
         [SerializeField]
@@ -60,16 +50,6 @@ namespace XaviGames.Car
 
         [field: SerializeField]
         public float DriftAngularDamping { get; private set; }
-
-        [field: Header("Ui Parameters")]
-        [field: SerializeField]
-        public int UiTopSpeed { get; private set; }
-
-        [field: SerializeField]
-        public int UiAcceleration { get; private set; }
-
-        [field: SerializeField]
-        public int UiHealth { get; private set; }
 
         public WheelFrictionCurve DriftFrictionCurve
         {

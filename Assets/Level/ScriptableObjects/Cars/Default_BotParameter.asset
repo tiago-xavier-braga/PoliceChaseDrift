@@ -13,22 +13,16 @@ MonoBehaviour:
   m_Name: Default_BotParameter
   m_EditorClassIdentifier: 
   <Id>k__BackingField: a0da3a79
-  <CarName>k__BackingField: Default
-  <CarDescription>k__BackingField: A default car
-  <CarImage>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   <CarPrefab>k__BackingField: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
   <TopSpeed>k__BackingField: 100
   <Acceleration>k__BackingField: 700
   <BreakForce>k__BackingField: 2000
   <SteeringRange>k__BackingField: 30
   <SteeringRangeAtMaxSpeed>k__BackingField: 20
-  <CentreOfGravityOffset>k__BackingField: -0.6
+  <CenterOfGravityOffset>k__BackingField: -0.9
   _extremumSlip: 0.25
   _extremumValue: 1.5
   _asymptoteSlip: 0.6
   _asymptoteValue: 1
   _stiffness: 1
   <DriftAngularDamping>k__BackingField: 0.3
-  <UiTopSpeed>k__BackingField: 1
-  <UiAcceleration>k__BackingField: 2
-  <UiHealth>k__BackingField: 0
