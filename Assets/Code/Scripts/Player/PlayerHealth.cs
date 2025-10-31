@@ -8,30 +8,37 @@ namespace XaviGames.Player
     public class PlayerHealth : ScriptableObject
     {
         [SerializeField]
-        private float _health;
+        private int _health;
 
         [field: SerializeField]
         [field: ReadOnly]
-        public float Health { get; private set; }
+        public int Health { get; private set; }
 
-        public UnityAction<float> OnHealthChanged;
+        public UnityAction<int> OnHealthChanged;
 
         private void OnEnable()
         {
             Health = _health;
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(int damage)
         {
             Debug.Log("Player took damage: " + damage);
             Health = Mathf.Max(0, Health - damage);
             OnHealthChanged?.Invoke(Health);
         }
 
-        public void Heal(float amount)
+        public void Heal(int amount)
         {
             Debug.Log("Player healed: " + amount);
             Health += amount;
+            OnHealthChanged?.Invoke(Health);
+        }
+
+        public void SetHealth(int health)
+        {
+            Debug.Log("Player health set to: " + health);
+            Health = health;
             OnHealthChanged?.Invoke(Health);
         }
 

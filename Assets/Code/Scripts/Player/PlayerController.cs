@@ -18,6 +18,9 @@ namespace XaviGames.Player
         private CarDatabase _carDatabase;
 
         [SerializeField]
+        private PlayerHealth _playerHealth;
+
+        [SerializeField]
         private Transform _startPosition;
 
         [SerializeField]
@@ -60,7 +63,8 @@ namespace XaviGames.Player
 
         public void SpawnCar()
         {
-            _currentCarParameter = _carDatabase.GetCarParameterById(_playerData.CurrentCar);
+            _currentCarParameter = _playerData.CurrentCar;
+            _playerHealth.SetHealth(_currentCarParameter.CarHealth);
             GameObject carPrefab = _currentCarParameter.CarPrefab;
             GameObject carObject = Instantiate(carPrefab, _startPosition.position, _startPosition.rotation);
             CarMovementController = carObject.GetComponent<CarMovementController>();

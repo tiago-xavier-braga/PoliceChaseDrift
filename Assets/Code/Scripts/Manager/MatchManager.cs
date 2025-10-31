@@ -76,7 +76,7 @@ namespace XaviGames.Manager
             _gameState = (GameState)newState;
         }
 
-        private void HandleHelthCHanged(float newHealth)
+        private void HandleHelthCHanged(int newHealth)
         {
             if (newHealth <= 0f)
             {

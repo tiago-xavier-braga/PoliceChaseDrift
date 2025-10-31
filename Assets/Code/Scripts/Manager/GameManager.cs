@@ -52,7 +52,6 @@ namespace XaviGames.Manager
             if (percent >= 1f)
             {
                 LoadingCanvasController.Instance.DisableLoading();
-                _playerHealth.ResetHealth();
                 _onGameStateChanged.RaiseEvent(GameState.Ready);
             }
         }

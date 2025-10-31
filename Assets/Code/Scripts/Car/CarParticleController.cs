@@ -25,7 +25,7 @@ namespace XaviGames.Car
             _playerHealth.OnHealthChanged -= OnHealthChanged;
         }
 
-        private void OnHealthChanged(float health)
+        private void OnHealthChanged(int health)
         {
             if (health < _healthThreshold && !_particleSystem.isPlaying)
             {

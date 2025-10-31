@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using JetBrains.Annotations;
 
 namespace XaviGames.Car
 {
@@ -11,7 +12,10 @@ namespace XaviGames.Car
 
         [field: SerializeField]
         public GameObject CarPrefab { get; private set; }
-        
+
+        [field: SerializeField]
+        public int CarHealth { get; private set; }
+
         [field: Header("Physical Parameters")]
 
         [field: SerializeField]

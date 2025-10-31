@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Shared;
 
@@ -6,10 +7,7 @@ namespace XaviGames.Car
     public class CarLightController : MonoBehaviour
     {
         [SerializeField]
-        private Light _leftLight;
-
-        [SerializeField]
-        private Light _rightLight;
+        private List<Light> _additionalLights = new List<Light>();
 
         [Header("Intensity")]
         [SerializeField]
@@ -47,12 +45,14 @@ namespace XaviGames.Car
             float target = (bool)state ? _intensityAtNight : _intensityAtDay;
 
             LeanTween
-                .value(gameObject, _leftLight.intensity, target, Mathf.Max(0.01f, _transitionSeconds))
+                .value(gameObject, _additionalLights[0].intensity, target, Mathf.Max(0.01f, _transitionSeconds))
                 .setEase(_easeType)
                 .setOnUpdate((float val) =>
                 {
-                    _leftLight.intensity = val;
-                    _rightLight.intensity = val;
+                    foreach (Light light in _additionalLights)
+                    {
+                        light.intensity = val;
+                    }
                 });
         }
     }

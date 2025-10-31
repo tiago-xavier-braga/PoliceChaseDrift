@@ -151,6 +151,7 @@ MonoBehaviour:
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
   _playerData: {fileID: 11400000, guid: cced31e5f9e13974ab1665db43db6484, type: 2}
   _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
+  _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
   _startPosition: {fileID: 316081193}
   _currentCarParameter: {fileID: 0}
   _gameState: 0

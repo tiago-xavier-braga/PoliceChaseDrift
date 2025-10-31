@@ -9,24 +9,31 @@ namespace XaviGames.Player
     {
         [field: Header("Runtime References")]
         [field: SerializeField]
-        public string CurrentCar { get; private set; }
+        public CarParameter CurrentCar { get; private set; }
 
         [field: SerializeField]
-        public List<string> UnlockedCar { get; private set; } = new List<string>();
-    
+        public List<CarParameter> UnlockedCar { get; private set; } = new();
+
+        [Header("References")]
+        private CarDatabase _carDatabase;
+
         public void UnlockCar(string carId)
         {
-            if (!UnlockedCar.Contains(carId))
+            CarParameter parameter = _carDatabase.GetCarParameterById(carId);
+
+            if (!UnlockedCar.Contains(parameter))
             {
-                UnlockedCar.Add(carId);
+                UnlockedCar.Add(parameter);
             }
         }
 
         public void SetCurrentCar(string carId)
         {
-            if (UnlockedCar.Contains(carId))
+            CarParameter parameter = _carDatabase.GetCarParameterById(carId);
+
+            if (UnlockedCar.Contains(parameter))
             {
-                CurrentCar = carId;
+                CurrentCar = parameter;
             }
             else
             {

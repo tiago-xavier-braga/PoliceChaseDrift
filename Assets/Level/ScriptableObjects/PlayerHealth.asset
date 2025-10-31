@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   _health: 20
-  <Health>k__BackingField: 19
+  <Health>k__BackingField: 20

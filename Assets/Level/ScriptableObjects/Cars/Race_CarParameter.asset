@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ddd10e623936644884df1a5d3d239a4, type: 3}
-  m_Name: Default_BotParameter
+  m_Name: Race_CarParameter
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: a0da3a79
-  <CarPrefab>k__BackingField: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
-  <CarHealth>k__BackingField: 20
-  <TopSpeed>k__BackingField: 100
-  <Acceleration>k__BackingField: 700
-  <BreakForce>k__BackingField: 2000
-  <SteeringRange>k__BackingField: 30
+  <Id>k__BackingField: 27bdd9f8
+  <CarPrefab>k__BackingField: {fileID: 7210896981700102937, guid: 3797d3016695ff648abdf2fff013baba, type: 3}
+  <CarHealth>k__BackingField: 10
+  <TopSpeed>k__BackingField: 180
+  <Acceleration>k__BackingField: 1200
+  <BreakForce>k__BackingField: 1300
+  <SteeringRange>k__BackingField: 20
   <SteeringRangeAtMaxSpeed>k__BackingField: 20
-  <CenterOfGravityOffset>k__BackingField: -0.6
+  <CenterOfGravityOffset>k__BackingField: -0.4
   _extremumSlip: 0.25
   _extremumValue: 1.5
   _asymptoteSlip: 0.6
