@@ -33,8 +33,8 @@ namespace XaviGames.Car
 
         private void Start()
         {
-            ApplyCenterMass();
             ConfigureWheelSettings();
+            ApplyCenterMass();
         }
 
         private void FixedUpdate()
@@ -69,10 +69,11 @@ namespace XaviGames.Car
             _rigidbody.isKinematic = false;
         }
 
+        [Button()]
         private void ApplyCenterMass()
         {
             Vector3 centerOfMass = _rigidbody.centerOfMass;
-            centerOfMass.y += _carParameter.CenterOfGravityOffset;
+            centerOfMass.y = _carParameter.CenterOfGravityOffset;
             _rigidbody.centerOfMass = centerOfMass;
         }
 
