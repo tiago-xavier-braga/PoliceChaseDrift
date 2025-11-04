@@ -20,7 +20,7 @@ MonoBehaviour:
   <BreakForce>k__BackingField: 2000
   <SteeringRange>k__BackingField: 30
   <SteeringRangeAtMaxSpeed>k__BackingField: 20
-  <CenterOfGravityOffset>k__BackingField: -0.6
+  <CenterOfGravityOffset>k__BackingField: -0.15
   _extremumSlip: 0.25
   _extremumValue: 1.5
   _asymptoteSlip: 0.6

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ddd10e623936644884df1a5d3d239a4, type: 3}
-  m_Name: Default_CarParameter
+  m_Name: Taxi_CarParameter
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: c50831eb
-  <CarPrefab>k__BackingField: {fileID: 9138602551222810146, guid: 4d30a07f8bcf7754e8ae7b16ed62987f, type: 3}
+  <Id>k__BackingField: 6e89696a
+  <CarPrefab>k__BackingField: {fileID: 7941920166707927116, guid: 5531dce03dfb22d48a5a1704d8aa2107, type: 3}
   <CarHealth>k__BackingField: 15
-  <TopSpeed>k__BackingField: 120
+  <TopSpeed>k__BackingField: 110
   <Acceleration>k__BackingField: 800
   <BreakForce>k__BackingField: 2000
-  <SteeringRange>k__BackingField: 30
-  <SteeringRangeAtMaxSpeed>k__BackingField: 20
+  <SteeringRange>k__BackingField: 45
+  <SteeringRangeAtMaxSpeed>k__BackingField: 25
   <CenterOfGravityOffset>k__BackingField: -0.02
   _extremumSlip: 0.25
   _extremumValue: 1.5
