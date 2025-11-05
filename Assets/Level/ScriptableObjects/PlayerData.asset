@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38fb552c24c55848b1eb8b6e1f50fa2, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <CurrentCar>k__BackingField: {fileID: 11400000, guid: b3fd5c1ffa673a34486611df171fa3dd, type: 2}
-  <UnlockedCar>k__BackingField:
-  - {fileID: 11400000, guid: a4bba646b88e8554eb144c882c86dcc2, type: 2}
-  - {fileID: 11400000, guid: c706c841683803e4397e9b14ea69b6b9, type: 2}
-  - {fileID: 11400000, guid: b3fd5c1ffa673a34486611df171fa3dd, type: 2}
+  <CurrentCar>k__BackingField: {fileID: 11400000, guid: c9ea07ff63c8dc546813e2995603d4b1, type: 2}
+  <UnlockedCars>k__BackingField:
   - {fileID: 11400000, guid: c9ea07ff63c8dc546813e2995603d4b1, type: 2}
+  - {fileID: 11400000, guid: c706c841683803e4397e9b14ea69b6b9, type: 2}
