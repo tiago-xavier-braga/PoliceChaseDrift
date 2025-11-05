@@ -149,11 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
   _playerData: {fileID: 11400000, guid: cced31e5f9e13974ab1665db43db6484, type: 2}
+  _playerHealth: {fileID: 0}
   _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
-  _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
-  _startPosition: {fileID: 316081193}
-  _currentCarParameter: {fileID: 0}
   _gameState: 0
 --- !u!4 &72601645
 Transform:
@@ -494,6 +493,7 @@ Transform:
   m_Children:
   - {fileID: 1437356826}
   - {fileID: 2123558876}
+  - {fileID: 431418604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &121752392 stripped
@@ -832,6 +832,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1767995589}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &431418603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431418604}
+  - component: {fileID: 431418605}
+  m_Layer: 0
+  m_Name: Garage Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &431418604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431418603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 102374554}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431418605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431418603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2433dae55ad457b43a82758280838efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
+  _playerData: {fileID: 11400000, guid: cced31e5f9e13974ab1665db43db6484, type: 2}
+  _startPosition: {fileID: 316081193}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
+  _currentCarIndex: 0
 --- !u!1 &487892620
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,6 +1003,34 @@ PrefabInstance:
     - target: {fileID: 3187148016497627898, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
       propertyPath: m_Name
       value: Arrow Button (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 431418605}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchedUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: XaviGames.Garage.GarageController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6299730843390524725, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1432,12 +1509,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1437356825}
+      objectReference: {fileID: 431418605}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 431418605}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnlockedCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SelectCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: XaviGames.Garage.GarageController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: XaviGames.Garage.GarageController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377893049310847479, guid: b0368f73cddadea44971f444375478dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3172719659381690166, guid: b0368f73cddadea44971f444375478dd, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2336,7 +2449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2347,11 +2460,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 431418605}
+    - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1218909322}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 247647471}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
@@ -2363,19 +2484,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableCanvas
+      value: SpawnSelectCar
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EnableCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: DisableCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: XaviGames.UICore.CanvasGroupController, Assembly-CSharp
+      value: XaviGames.Garage.GarageController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: XaviGames.UICore.CanvasGroupController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: XaviGames.UICore.CanvasGroupController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
@@ -2384,6 +2517,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331553870955163313, guid: 9703efd8ab7b1f9438bdc97b5103436d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2492,7 +2629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b49633b3ce3f9442943e5becae6cafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 72601643}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
   _offset: {x: -30, y: 30, z: -30}
   _isFollowingPlayer: 1
   _initialAnimationDuration: 2
@@ -2700,8 +2837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Bot.BotSpawnerController
   _onNightChangedEventChannel: {fileID: 11400000, guid: e1172bd9ed22d1341b09d08c24d992e7, type: 2}
   _onGameStateChangedEventChannel: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
   _numberOfBotsToSpawn: 30
-  _playerController: {fileID: 72601643}
   _botPrefabs:
   - {fileID: 4024901452684827058, guid: 2e68adad7dba0894db285ce785e41dc5, type: 3}
   _spawnPoints:
@@ -2990,6 +3127,34 @@ PrefabInstance:
     - target: {fileID: 3187148016497627898, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
       propertyPath: m_Name
       value: Arrow Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 431418605}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchedDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: XaviGames.Garage.GarageController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060256998908579534, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6299730843390524725, guid: 67f59526e517e514a9649cc8fa63d103, type: 3}
       propertyPath: m_LocalScale.x
