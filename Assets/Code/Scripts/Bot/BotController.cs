@@ -1,8 +1,9 @@
 using UnityEngine;
 using XaviGames.Car;
-using XaviGames.Player;
 using XaviGames.Manager;
+using XaviGames.Player;
 using XaviGames.Shared;
+using static UnityEngine.GraphicsBuffer;
 
 namespace XaviGames.Bot
 {
@@ -35,13 +36,13 @@ namespace XaviGames.Bot
         [ReadOnly]
         private GameState _gameState = GameState.None;
 
-        [SerializeField]
-        [ReadOnly]
-        public PlayerController PlayerController;
+        private Transform _playerCarTransform;
 
         private void OnEnable()
         {
+
             _onGameStateChanged.Subscribe(HandleGameStateChanged);
+
             _gameState = _onGameStateChanged.Parameter != null 
                 ? (GameState)_onGameStateChanged.Parameter : GameState.None;
         }
@@ -60,9 +61,7 @@ namespace XaviGames.Bot
             }
 
             Transform carTransform = _carMovementController.transform;
-            Transform playerCarTransform = PlayerController.CarTransform;
-
-            Vector3 directionToPlayer = playerCarTransform.position - carTransform.position;
+            Vector3 directionToPlayer = _playerCarTransform.position - carTransform.position;
             float angleToPlayer = Vector3.SignedAngle(carTransform.forward, directionToPlayer, Vector3.up);
 
             Vector2 inputVector = Vector2.zero;
@@ -84,6 +83,11 @@ namespace XaviGames.Bot
             }
 
             _carMovementController.OnMoveInput(inputVector);
+        }
+
+        public void SetPlayerCarTransform(Transform playerCarTransform)
+        {
+            _playerCarTransform = playerCarTransform;
         }
 
         private void HandleGameStateChanged(object newState)

@@ -7,9 +7,9 @@ namespace XaviGames.Car
 {
     public class CarMovementController : MonoBehaviour
     {
-        [Header("Car Properties")]
-        [SerializeField]
-        private CarParameter _carParameter;
+        [field: Header("Car Properties")]
+        [field: SerializeField]
+        public CarParameter CarParameter { get; private set; }
 
         [SerializeField]
         private Rigidbody _rigidbody;
@@ -73,17 +73,16 @@ namespace XaviGames.Car
         private void ApplyCenterMass()
         {
             Vector3 centerOfMass = _rigidbody.centerOfMass;
-            centerOfMass.y = _carParameter.CenterOfGravityOffset;
+            centerOfMass.y = CarParameter.CenterOfGravityOffset;
             _rigidbody.centerOfMass = centerOfMass;
         }
 
         private void ConfigureWheelSettings()
         {
             _originalSidewaysFriction = _wheelControllers.First().WheelCollider.sidewaysFriction;
-            _driftSidewaysFriction = _carParameter.DriftFrictionCurve;
+            _driftSidewaysFriction = CarParameter.DriftFrictionCurve;
             _defaultAngularDamping = _rigidbody.angularDamping;
         }
-
 
         private void ApplyDriftWheelSettings()
         {
@@ -92,7 +91,7 @@ namespace XaviGames.Car
                 wheel.WheelCollider.sidewaysFriction = _driftSidewaysFriction;
             }
 
-            _rigidbody.angularDamping = _carParameter.DriftAngularDamping;
+            _rigidbody.angularDamping = CarParameter.DriftAngularDamping;
         }
 
         private void ApplyDefaultWheelSettings()
@@ -110,12 +109,12 @@ namespace XaviGames.Car
             KmPerHour = _rigidbody.linearVelocity.magnitude * 3.6f;
 
             float forwardSpeed = Vector3.Dot(transform.forward, _rigidbody.linearVelocity);
-            float speedFactor = Mathf.InverseLerp(0f, _carParameter.TopSpeed, Mathf.Abs(forwardSpeed));
+            float speedFactor = Mathf.InverseLerp(0f, CarParameter.TopSpeed, Mathf.Abs(forwardSpeed));
 
-            float motorTorque = Mathf.Lerp(_carParameter.Acceleration, 0f, speedFactor);
+            float motorTorque = Mathf.Lerp(CarParameter.Acceleration, 0f, speedFactor);
             float steeringRange = Mathf.Lerp(
-                _carParameter.SteeringRange,
-                _carParameter.SteeringRangeAtMaxSpeed,
+                CarParameter.SteeringRange,
+                CarParameter.SteeringRangeAtMaxSpeed,
                 speedFactor
             );
 
@@ -145,7 +144,7 @@ namespace XaviGames.Car
                 else
                 {
                     wheel.WheelCollider.motorTorque = 0f;
-                    wheel.WheelCollider.brakeTorque = Mathf.Abs(_inputVector.y) * _carParameter.BreakForce;
+                    wheel.WheelCollider.brakeTorque = Mathf.Abs(_inputVector.y) * CarParameter.BreakForce;
                 }
 
                 wheel.UpdateWheelPosition();

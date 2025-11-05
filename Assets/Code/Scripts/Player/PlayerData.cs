@@ -12,33 +12,36 @@ namespace XaviGames.Player
         public CarParameter CurrentCar { get; private set; }
 
         [field: SerializeField]
-        public List<CarParameter> UnlockedCar { get; private set; } = new();
+        public List<CarParameter> UnlockedCars { get; private set; } = new();
 
         [Header("References")]
         private CarDatabase _carDatabase;
 
-        public void UnlockCar(string carId)
+        public void UnlockCar(CarParameter carParameter)
         {
-            CarParameter parameter = _carDatabase.GetCarParameterById(carId);
-
-            if (!UnlockedCar.Contains(parameter))
+            if (!_carDatabase.CarsParameters.Contains(carParameter))
             {
-                UnlockedCar.Add(parameter);
+                Debug.LogWarning($"Car with ID {carParameter.Id} does not exist in the database.");
+                return;
             }
+
+            if (UnlockedCars.Contains(carParameter))
+            {
+                return;
+            }
+
+            UnlockedCars.Add(carParameter);
         }
 
-        public void SetCurrentCar(string carId)
+        public void SetCurrentCar(CarParameter carParameter)
         {
-            CarParameter parameter = _carDatabase.GetCarParameterById(carId);
+            if (!UnlockedCars.Contains(carParameter))
+            {
+                return;
+            }
 
-            if (UnlockedCar.Contains(parameter))
-            {
-                CurrentCar = parameter;
-            }
-            else
-            {
-                Debug.LogWarning($"Car with ID {carId} is not unlocked and cannot be set as current.");
-            }
+            CurrentCar = carParameter;
+
         }
     }
 }

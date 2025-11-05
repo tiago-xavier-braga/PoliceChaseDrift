@@ -1,4 +1,6 @@
 using UnityEngine;
+using XaviGames.Car;
+using XaviGames.Shared;
 
 namespace XaviGames.Player
 {
@@ -7,7 +9,7 @@ namespace XaviGames.Player
     public class CameraController : MonoBehaviour
     {
         [SerializeField]
-        private PlayerController _playerController;
+        private EventChannel _onCarSelected;
 
         [SerializeField]
         private Vector3 _offset = new Vector3(-10f, 10f, -10f);
@@ -31,9 +33,18 @@ namespace XaviGames.Player
         private Transform _target;
         private Camera _camera;
 
+        private void OnEnable()
+        {
+            _onCarSelected.Subscribe(HandleCarSelected);
+        }
+
+        private void OnDisable()
+        {
+            _onCarSelected.Unsubscribe(HandleCarSelected);
+        }
+
         private void Start()
         {
-            _target = _playerController.CarTransform;
             _camera = GetComponent<Camera>();
             _camera.orthographicSize = _initialOrthographicSize;
         }
@@ -69,6 +80,12 @@ namespace XaviGames.Player
                 {
                     _camera.orthographicSize = size;
                 });
+        }
+
+        private void HandleCarSelected(object carObject)
+        {
+            GameObject carGameObject = (GameObject)carObject;
+            _target = carGameObject.transform;
         }
     }
 }

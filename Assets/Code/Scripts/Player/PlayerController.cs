@@ -12,37 +12,33 @@ namespace XaviGames.Player
         private EventChannel _onGameStateChanged;
 
         [SerializeField]
-        private PlayerData _playerData;
-
+        private EventChannel _onCarSelected;
+        
         [SerializeField]
-        private CarDatabase _carDatabase;
+        private PlayerData _playerData;
 
         [SerializeField]
         private PlayerHealth _playerHealth;
 
         [SerializeField]
-        private Transform _startPosition;
-
-        [SerializeField]
-        [ReadOnly]
-        private CarParameter _currentCarParameter;
+        private CarDatabase _carDatabase;
 
         [SerializeField]
         [ReadOnly]
         private GameState _gameState = GameState.None;
-        
-        public Transform CarTransform { get; private set; } = null;
-        public CarMovementController CarMovementController { get; private set; } = null;
+
+        private CarMovementController _carMovementController;
 
         private void OnEnable()
         {
             _onGameStateChanged.Subscribe(HandleGameStateChanged);
-            SpawnCar();
+            _onCarSelected.Subscribe(HandleCarSelected);
         }
 
         private void OnDisable()
         {
             _onGameStateChanged.Unsubscribe(HandleGameStateChanged);
+            _onCarSelected.Unsubscribe(HandleCarSelected);
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
@@ -52,23 +48,8 @@ namespace XaviGames.Player
                 return;
             }
 
-            if (CarMovementController == null)
-            {
-                return;
-            }
-
             Vector2 inputVector = context.ReadValue<Vector2>();
-            CarMovementController.OnMoveInput(inputVector);
-        }
-
-        public void SpawnCar()
-        {
-            _currentCarParameter = _playerData.CurrentCar;
-            _playerHealth.SetHealth(_currentCarParameter.CarHealth);
-            GameObject carPrefab = _currentCarParameter.CarPrefab;
-            GameObject carObject = Instantiate(carPrefab, _startPosition.position, _startPosition.rotation);
-            CarMovementController = carObject.GetComponent<CarMovementController>();
-            CarTransform = carObject.transform;
+            _carMovementController.OnMoveInput(inputVector);
         }
 
         private void HandleGameStateChanged(object state)
@@ -77,8 +58,15 @@ namespace XaviGames.Player
         
             if (_gameState == GameState.GameOver)
             {
-                CarMovementController.Block();
+                _carMovementController.Block();
             }
+        }
+
+        private void HandleCarSelected(object carObject)
+        {
+            GameObject carGameObject = (GameObject)carObject;
+            _carMovementController = carGameObject.GetComponent<CarMovementController>();
+
         }
 
         [Button("Debug Mode")]
