@@ -66,7 +66,7 @@ namespace XaviGames.Player
         {
             GameObject carGameObject = (GameObject)carObject;
             _carMovementController = carGameObject.GetComponent<CarMovementController>();
-
+            _playerHealth.SetHealth(_carMovementController.CarParameter.CarHealth);
         }
 
         [Button("Debug Mode")]
