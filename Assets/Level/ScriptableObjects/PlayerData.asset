@@ -16,3 +16,4 @@ MonoBehaviour:
   <UnlockedCars>k__BackingField:
   - {fileID: 11400000, guid: c9ea07ff63c8dc546813e2995603d4b1, type: 2}
   - {fileID: 11400000, guid: c706c841683803e4397e9b14ea69b6b9, type: 2}
+  _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}

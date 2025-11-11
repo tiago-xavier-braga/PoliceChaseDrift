@@ -15,6 +15,7 @@ namespace XaviGames.Player
         public List<CarParameter> UnlockedCars { get; private set; } = new();
 
         [Header("References")]
+        [SerializeField]
         private CarDatabase _carDatabase;
 
         public void UnlockCar(CarParameter carParameter)
