@@ -8,6 +8,9 @@ namespace XaviGames.Manager
     public class GameManager : MonoBehaviour
     {
         [SerializeField]
+        private SceneBundle _cutsceneBundle;
+
+        [SerializeField]
         private SceneBundle _sceneBundle;
 
         [SerializeField]
@@ -44,7 +47,7 @@ namespace XaviGames.Manager
         private void Start()
         {
             LoadingCanvasController.Instance.EnableLoading();
-            _sceneBundle.LoadScenesAsync(true, OnSceneLoadStatus);
+            _cutsceneBundle.LoadScenesAsync(true, OnSceneLoadStatus);
         }
 
         private void OnSceneLoadStatus(float percent)

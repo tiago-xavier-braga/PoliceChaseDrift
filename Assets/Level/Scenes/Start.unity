@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ae6947ba16fb74fbacbb502f029515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XaviGames.Manager.GameManager
+  _cutsceneBundle: {fileID: 11400000, guid: 9c7b21c110aa6e5459f137eb153c02d9, type: 2}
   _sceneBundle: {fileID: 11400000, guid: 1607f63681040774eba1969430152068, type: 2}
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
   _onReloadGame: {fileID: 11400000, guid: 85d73678ba6292b4ca5ee847749194f6, type: 2}

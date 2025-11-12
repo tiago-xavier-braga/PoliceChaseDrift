@@ -33,6 +33,11 @@ namespace XaviGames.Ui
 
         public void EnableLoading()
         {
+            EnableLoading(_loadingDuration);
+        }
+
+        public void EnableLoading(float time)
+        {
             if (_loadingCanvasGroup.alpha == 1f)
             {
                 return;
@@ -40,7 +45,7 @@ namespace XaviGames.Ui
 
             _loadingCanvasGroup.alpha = 0f;
             LeanTween.cancel(_leanTweenId);
-            _leanTweenId = LeanTween.alphaCanvas(_loadingCanvasGroup, 1f, _loadingDuration)
+            _leanTweenId = LeanTween.alphaCanvas(_loadingCanvasGroup, 1f, time)
                 .setEase(_loadingTweenType).id;
 
             _loadingCanvasGroup.interactable = true;
@@ -49,6 +54,11 @@ namespace XaviGames.Ui
 
         public void DisableLoading()
         {
+            DisableLoading(_loadingDuration);
+        }
+
+        public void DisableLoading(float time)
+        {
             if (_loadingCanvasGroup.alpha == 0f)
             {
                 return;
@@ -56,7 +66,7 @@ namespace XaviGames.Ui
 
             _loadingCanvasGroup.alpha = 1f;
             LeanTween.cancel(_leanTweenId);
-            _leanTweenId = LeanTween.alphaCanvas(_loadingCanvasGroup, 0f, _loadingDuration)
+            _leanTweenId = LeanTween.alphaCanvas(_loadingCanvasGroup, 0f, time)
                 .setEase(LeanTweenType.easeInOutQuad).id;
 
             _loadingCanvasGroup.interactable = false;
