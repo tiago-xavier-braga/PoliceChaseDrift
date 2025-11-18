@@ -61,9 +61,9 @@ WheelCollider:
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_AsymptoteSlip: 0.6
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 3207780678357549269}
   - component: {fileID: 3652940619286512663}
   - component: {fileID: 1206151379132116259}
+  - component: {fileID: -1813308054776954944}
   m_Layer: 0
   m_Name: Police Car
   m_TagString: Untagged
@@ -515,8 +516,8 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
+    m_Bits: 512
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -544,6 +545,33 @@ MonoBehaviour:
   - {fileID: 6701064872585337886}
   _inputVector: {x: 0, y: 0}
   <KmPerHour>k__BackingField: 0
+--- !u!114 &-1813308054776954944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101708041625964172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a3ab063ec32e64bb13df0b89ab0058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carMovementController: {fileID: 1206151379132116259}
+  _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+  _minTurnAngleDegrees: 5
+  _distanceThresholdMeters: 2
+  _steerInputMagnitude: 1
+  _forwardInput: 1
+  _reverseInput: -1
+  _maxDistanceFromPlayerMeters: 60
+  _reverseDurationSeconds: 1
+  _buildingLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  _buildingFadeAlpha: 0.3
+  _buildingFadeDurationSeconds: 0.25
+  _gameState: 0
 --- !u!1 &6268634239024845234
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,9 +719,9 @@ WheelCollider:
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_AsymptoteSlip: 0.6
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -780,9 +808,9 @@ WheelCollider:
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_AsymptoteSlip: 0.6
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -869,9 +897,9 @@ WheelCollider:
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_AsymptoteSlip: 0.6
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

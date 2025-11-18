@@ -3310,11 +3310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onGameStateChanged: {fileID: 11400000, guid: d84da1c22c4b44c4ba1e1e04c583a016, type: 2}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
   _playerData: {fileID: 11400000, guid: cced31e5f9e13974ab1665db43db6484, type: 2}
-  _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
   _playerHealth: {fileID: 11400000, guid: e8257f32e639527499d83d83e4bdb99d, type: 2}
-  _startPosition: {fileID: 535199660}
-  _currentCarParameter: {fileID: 0}
+  _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
   _gameState: 0
 --- !u!4 &535199660
 Transform:
@@ -44780,6 +44779,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21492933602326b4e9cd95211831fd0b, type: 3}
+--- !u!1 &1707624453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707624455}
+  - component: {fileID: 1707624454}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1707624454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707624453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2433dae55ad457b43a82758280838efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carDatabase: {fileID: 11400000, guid: e67b466c37bb60349a3c363cdaad1fb1, type: 2}
+  _playerData: {fileID: 11400000, guid: cced31e5f9e13974ab1665db43db6484, type: 2}
+  _startPosition: {fileID: 535199660}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
+  _currentCarIndex: 0
+--- !u!4 &1707624455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707624453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1721152584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46480,7 +46528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b49633b3ce3f9442943e5becae6cafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 535199659}
+  _onCarSelected: {fileID: 11400000, guid: 3896896c0dcd9194bb08819d84c08c22, type: 2}
   _offset: {x: -30, y: 30, z: -30}
   _isFollowingPlayer: 1
   _initialAnimationDuration: 2
@@ -48074,3 +48122,4 @@ SceneRoots:
   - {fileID: 1150440161}
   - {fileID: 1959198785}
   - {fileID: 535199660}
+  - {fileID: 1707624455}

@@ -1,26 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using XaviGames.Manager;
-using XaviGames.Player;
 using XaviGames.Shared;
-using static UnityEngine.GraphicsBuffer;
 
 namespace XaviGames.Bot
 {
     public class BotSpawnerController : MonoBehaviour
     {
         [SerializeField]
-        private EventChannel _onNightChangedEventChannel;
-
-        [SerializeField]
         private EventChannel _onGameStateChangedEventChannel;
 
         [SerializeField]
         private EventChannel _onCarSelected;
-        
+
+        [Header("Spawn Settings")]
         [SerializeField]
         private int _numberOfBotsToSpawn = 5;
+
+        [SerializeField]
+        private float _spawnIntervalSeconds = 10f;
 
         [Space]
         [SerializeField]
@@ -44,17 +42,16 @@ namespace XaviGames.Bot
         private List<GameObject> _spawnedBots = new List<GameObject>();
 
         private GameObject _playerCarObject;
+        private float _spawnTimerSeconds = 0f;
 
         private void OnEnable()
         {
-            _onNightChangedEventChannel.Subscribe(HandleIsNightChanged);
             _onGameStateChangedEventChannel.Subscribe(HandleGameStateChanged);
             _onCarSelected.Subscribe(HandleCarSelected);
         }
 
         private void OnDisable()
         {
-            _onNightChangedEventChannel.Unsubscribe(HandleIsNightChanged);
             _onGameStateChangedEventChannel.Unsubscribe(HandleGameStateChanged);
             _onCarSelected.Unsubscribe(HandleCarSelected);
         }
@@ -66,19 +63,36 @@ namespace XaviGames.Bot
                 GameObject botPrefab = _botPrefabs[Random.Range(0, _botPrefabs.Count)];
                 GameObject instance = Instantiate(botPrefab, Vector3.zero, Quaternion.identity, transform);
                 BotController botController = instance.GetComponent<BotController>();
-                //botController.SetPlayerCarTransform(_playerCarObject.transform);
                 instance.SetActive(false);
                 _spawnedBots.Add(instance);
             }
         }
 
-        private void HandleIsNightChanged(object state)
+        private void Update()
         {
-            if (!(bool)state)
+            if (_gameState != GameState.InGame)
             {
                 return;
             }
-         
+
+            if (_playerCarObject == null)
+            {
+                return;
+            }
+
+            if (_spawnedBotsCount >= _numberOfBotsToSpawn)
+            {
+                return;
+            }
+
+            _spawnTimerSeconds += Time.deltaTime;
+
+            if (_spawnTimerSeconds < _spawnIntervalSeconds)
+            {
+                return;
+            }
+
+            _spawnTimerSeconds = 0f;
             SpawnBot();
         }
 
@@ -99,6 +113,11 @@ namespace XaviGames.Bot
                 return;
             }
 
+            if (_playerCarObject == null)
+            {
+                return;
+            }
+
             if (_spawnedBotsCount >= _numberOfBotsToSpawn)
             {
                 return;
@@ -112,6 +131,7 @@ namespace XaviGames.Bot
             foreach (Transform point in _spawnPoints)
             {
                 float currentDistance = Vector3.Distance(carTransform.position, point.position);
+
                 if (currentDistance > maxDistance)
                 {
                     farthestPoint = point;

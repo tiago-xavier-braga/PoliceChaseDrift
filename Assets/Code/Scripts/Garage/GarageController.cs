@@ -47,7 +47,7 @@ namespace XaviGames.Garage
             }
 
             _currentCarObject = Instantiate(carParameter.CarPrefab, _startPosition.position, _startPosition.rotation);
-            _currentCarObject.transform.SetParent(null);
+            _currentCarObject.transform.SetParent(_startPosition.parent);
             _onCarSelected.RaiseEvent(_currentCarObject);
         }
 

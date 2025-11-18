@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Police_CarParameter
   m_EditorClassIdentifier: 
   <Id>k__BackingField: eaebee89
-  <CarPrefab>k__BackingField: {fileID: 0}
-  <CarHealth>k__BackingField: 0
-  <TopSpeed>k__BackingField: 120
-  <Acceleration>k__BackingField: 800
-  <BreakForce>k__BackingField: 2000
+  <CarPrefab>k__BackingField: {fileID: 6101708041625964172, guid: 57de804dc9650974ab24839f9092f398, type: 3}
+  <CarHealth>k__BackingField: 10
+  <TopSpeed>k__BackingField: 100
+  <Acceleration>k__BackingField: 600
+  <BreakForce>k__BackingField: 4000
   <SteeringRange>k__BackingField: 30
-  <SteeringRangeAtMaxSpeed>k__BackingField: 20
-  <CenterOfGravityOffset>k__BackingField: -0.02
+  <SteeringRangeAtMaxSpeed>k__BackingField: 10
+  <CenterOfGravityOffset>k__BackingField: 0
   _extremumSlip: 0.25
   _extremumValue: 1.5
   _asymptoteSlip: 0.6
