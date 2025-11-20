@@ -1,19 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Car;
+using XaviGames.Shared;
 
 namespace XaviGames.Player
 {
     [CreateAssetMenu(fileName = "PlayerData", menuName = "Xavi Games/Player/PlayerData", order = 0)]
     public class PlayerData : ScriptableObject
     {
-        [field: Header("Runtime References")]
+        [field: Header("Car References")]
         [field: SerializeField]
         public CarParameter CurrentCar { get; private set; }
 
-        [Header("References")]
         [SerializeField]
         private CarDatabase _carDatabase;
+
+        [field: SerializeField]
+        [field: ReadOnly]
+        public int Score = 0;
 
         public void SetCurrentCar(CarParameter carParameter)
         {
@@ -24,6 +28,11 @@ namespace XaviGames.Player
             }
 
             CurrentCar = carParameter;
+        }
+
+        public void SetScore(int score)
+        {
+            Score = score;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace XaviGames.Bot
 
         [SerializeField]
         [ReadOnly]
-        private int _spawnedBotsCount = 1;
+        private int _spawnedBotsCount = 0;
 
         [SerializeField]
         [ReadOnly]
@@ -66,6 +66,8 @@ namespace XaviGames.Bot
                 instance.SetActive(false);
                 _spawnedBots.Add(instance);
             }
+
+            SpawnBot();
         }
 
         private void Update()
