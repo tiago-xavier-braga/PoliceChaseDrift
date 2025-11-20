@@ -17,6 +17,6 @@ MonoBehaviour:
     <SceneName>k__BackingField: StaticEnvironment
   <ScenesAdditives>k__BackingField:
   - _sceneAsset: {fileID: 102900000, guid: d3c70dbf07181934eb4636c5e892dfb1, type: 3}
-    <SceneName>k__BackingField: Game
+    <SceneName>k__BackingField: Cutscene
   - _sceneAsset: {fileID: 102900000, guid: 16ee79f3945b4334c97cb2ad04dbce8d, type: 3}
     <SceneName>k__BackingField: DynamicEnvironment
