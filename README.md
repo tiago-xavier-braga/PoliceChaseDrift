@@ -1,22 +1,53 @@
 # Police Chase: Drift
 
-Arcade racing game where the adrenaline never stops. Speed through an isolated parking lot while escaping relentless police cars — drift, dodge ramps, and stay ahead for as long as you can.
+An arcade chase game: the player drives through a city block while police cars
+spawn at the farthest point and hunt them down. Every hit costs health; the run
+ends when health reaches zero. A day/night cycle runs during the match, turning
+on street and car lights at night. Built in Unity for the web.
 
-Built in Unity, shipped for the web.
+**Status: shipped.** Playable in the browser on
+[itch.io](https://xavigames.itch.io/), no install.
 
-## Play it
+## Requirements
 
-[itch.io](https://xavigames.itch.io/) — playable in browser, no install.
+Unity **6000.0.60f1** — Universal Render Pipeline, Input System, WebGL build target.
 
-## Tech
+## Running
 
-- Unity, C#
-- [CrazySDK](https://sdk.crazygames.com/) for web platform integration
-- WebGL build target
+Open the project in Unity and press Play from `Assets/Level/Scenes/Start.unity`.
+It loads the intro cutscene, then the game; both are built from additive scenes
+(`StaticEnvironment` + `DynamicEnvironment` + `Cutscene` or `Game`).
 
-## Status
+## Controls
 
-Shipped.
+| Action | Keys |
+|---|---|
+| Accelerate / brake and reverse | `W` `S` / `↑` `↓` |
+| Steer | `A` `D` / `←` `→` |
 
----
-Built by [Xavi Games](https://github.com/Xavi-Games), a solo indie studio.
+## Layout
+
+```
+Assets/
+  Art/          meshes, materials, textures, animations, fonts
+  Audio/        music, sound effects, voice-overs
+  Code/         gameplay scripts and shader graphs
+  Level/        scenes, prefabs, timelines, inputs, ScriptableObjects
+  Settings/     render pipeline and build profiles
+  XaviGames/    shared tools: event channels, scene bundles, UI core
+  ThirdParty/   LeanTween, Kenney kits, skybox, water shader
+```
+
+Organised by resource type. Systems talk through ScriptableObject event
+channels (`OnGameStateChanged`, `OnCarSelected`, `OnNightChanged`, `OnReloadGame`).
+
+## What's implemented
+
+- Wheel-collider car physics with per-car parameters (speed, torque, steering, drift friction)
+- Police bots that chase the player and back off after a collision
+- Timed bot spawner, always spawning at the point farthest from the player
+- Health, damage on collision, smoke when damaged, game over and restart
+- Day/night cycle driving street lamps and car lights
+- Destructible lamp posts with a dissolve shader
+- Intro cutscene on Timeline
+- Loading screen and additive scene loading
